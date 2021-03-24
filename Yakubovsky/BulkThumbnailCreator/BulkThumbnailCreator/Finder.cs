@@ -1,10 +1,5 @@
 using System.IO;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Collections;
 
 namespace BulkThumbnailCreator
 {
@@ -13,14 +8,12 @@ namespace BulkThumbnailCreator
         public const string oldFilePath = "/Users/tim143/Desktop/pathStart"; // Full path of old file
         public const string newFilePath = "/Users/tim143/Desktop/pathEnd"; // Full path of new file
         
-        public void RenameImages(CancellationToken token)
+        public void RenameImages()
         {
             if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Oops.We can't find this directory.");
-                
-                //Thinking about to throw new DirectoryNotFoundException here.
                 Thread.Sleep(3000);
                 Environment.Exit(0);
             }
@@ -30,15 +23,19 @@ namespace BulkThumbnailCreator
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("Enter new name for all files: ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             string newNameForAllFilesInFolder = Console.ReadLine();
             Console.ResetColor();
+
+            FileExtension fileExtension = ChooseExtension();
+            Console.Clear();
             
             int index = 1;
             try
             {
                 foreach (var item in files)
                 {
-                    item.Rename($"{newNameForAllFilesInFolder}.{index}.jpg");
+                    item.Rename($"{newNameForAllFilesInFolder}.{index}.{fileExtension}");
                     index++;
                 }
             }
@@ -70,12 +67,13 @@ namespace BulkThumbnailCreator
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Oops.We can't find this directory.");
-                
-                //Thinking about to throw new DirectoryNotFoundException here.
                 Thread.Sleep(3000);
                 Environment.Exit(0);
             }
-
+            
+            FileExtension fileExtension = ChooseExtension();
+            Console.Clear();
+            
             string[] files = Directory.GetFiles(oldFilePath);
             try
             {
@@ -83,7 +81,7 @@ namespace BulkThumbnailCreator
                 {
                     Bitmap bmp = new Bitmap(item);
                     Bitmap image = new Bitmap(bmp, width, height);
-                    image.Save($"{newFilePath}/{index}.jpg");
+                    image.Save($"{newFilePath}/{index}.{fileExtension}");
                     index++;
                 }
             }
@@ -140,6 +138,44 @@ namespace BulkThumbnailCreator
                     Console.Clear();
                 }
             }
+        }
+
+        public void ShowFileExtention()
+        { 
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine($"1){FileExtension.jpeg}");
+            Console.WriteLine($"2){FileExtension.jpg}");
+            Console.WriteLine($"3){FileExtension.png}");
+            Console.WriteLine($"4){FileExtension.ai}");
+            Console.WriteLine($"5){FileExtension.bmp}");
+            Console.WriteLine($"6){FileExtension.eps}");
+            Console.WriteLine($"7){FileExtension.pdf}");
+            Console.WriteLine($"8){FileExtension.psd}");
+            Console.WriteLine($"9){FileExtension.tiff}");
+            Console.ResetColor();
+        }
+
+        public FileExtension ChooseExtension()
+        {
+            ShowFileExtention();
+            
+            Console.Write("Now,enter file extention number: ");
+            char voice = Console.ReadKey().KeyChar;
+            switch (voice)
+            {
+                    case '1': return FileExtension.jpeg;
+                    case '2': return FileExtension.jpg;
+                    case '3': return FileExtension.png;
+                    case '4': return FileExtension.ai;
+                    case '5': return FileExtension.bmp;
+                    case '6': return FileExtension.eps;
+                    case '7': return FileExtension.pdf;
+                    case '8': return FileExtension.psd;
+                    case '9': return FileExtension.tiff;
+                    default: throw new ArgumentException("Invalid operation code.");
+            }
+
+            Console.Clear();
         }
     }
 }

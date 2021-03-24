@@ -26,19 +26,18 @@ namespace BulkThumbnailCreator
                 switch (choice)
                 {
                     case '1':
-                        
                         Task.Factory.StartNew(() => finder.ResizeImages()).Wait();
                         
                         break;
                     case '2':
+                        Task.Factory.StartNew(() => finder.RenameImages()).Wait();
                         
-                        Task.Factory.StartNew(() => finder.RenameImages(token)).Wait();
-
                         break;
                     case '3':
                         processRun = false;
                         Thread.Sleep(3000);
                         Console.WriteLine("\t\t\tSee you again!");
+                        
                         break;
                     default:
                         Console.Clear();
