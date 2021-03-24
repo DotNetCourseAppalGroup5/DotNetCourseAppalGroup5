@@ -14,6 +14,16 @@ namespace BulkThumbnailCreator
         
         public void RenameImages(CancellationToken token)
         {
+            if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Oops.We can't find this directory.");
+                
+                //Thinking about to throw new DirectoryNotFoundException here.
+                Thread.Sleep(3000);
+                Environment.Exit(0);
+            }
+            
             DirectoryInfo directoryInfo = new DirectoryInfo(oldFilePath);
             FileInfo[] files = directoryInfo.GetFiles();
 
@@ -53,8 +63,17 @@ namespace BulkThumbnailCreator
             int index = 1;
 
             TryParseMethod(ref width,ref height);
-            
             Console.Clear();
+
+            if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Oops.We can't find this directory.");
+                
+                //Thinking about to throw new DirectoryNotFoundException here.
+                Thread.Sleep(3000);
+                Environment.Exit(0);
+            }
 
             string[] files = Directory.GetFiles(oldFilePath);
             try
@@ -82,8 +101,7 @@ namespace BulkThumbnailCreator
                 Console.Clear();
             }
         }
-
-
+        
         public void TryParseMethod(ref int width,ref int height)
         {
             string widthStr = null, heightStr = null;
@@ -122,6 +140,5 @@ namespace BulkThumbnailCreator
                 }
             }
         }
-
     }
 }
