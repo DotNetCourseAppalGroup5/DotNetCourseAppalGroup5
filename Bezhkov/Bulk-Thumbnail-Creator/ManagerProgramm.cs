@@ -38,10 +38,7 @@ namespace ConsoleApp14
         }
 
         //Default constructor
-        public ManagerProgramm()
-        {
-
-        }
+        public ManagerProgramm() { }
 
         //Homework information
         internal void Info()
