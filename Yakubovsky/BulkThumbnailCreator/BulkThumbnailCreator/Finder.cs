@@ -1,5 +1,7 @@
 using System.IO;
 using System;
+using System.Threading;
+using System.Drawing;
 
 namespace BulkThumbnailCreator
 {
@@ -47,11 +49,7 @@ namespace BulkThumbnailCreator
             }
             finally
             {
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("Your operation was complete. Press any button to continue.");
-                Console.ReadKey();
-                Console.ResetColor();
-                Console.Clear();
+                OperationSuccessfullEnd();
             }
         }
 
@@ -93,15 +91,11 @@ namespace BulkThumbnailCreator
             }
             finally
             {
-                Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("Your operation was complete. Press any button to continue.");
-                Console.ReadKey();
-                Console.ResetColor();
-                Console.Clear();
+                OperationSuccessfullEnd();
             }
         }
         
-        public void TryParseMethod(ref int width,ref int height)
+        private void TryParseMethod(ref int width,ref int height)
         {
             string widthStr = null, heightStr = null;
 
@@ -140,7 +134,7 @@ namespace BulkThumbnailCreator
             }
         }
 
-        public void ShowFileExtention()
+        private void ShowFileExtention()
         { 
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine($"1){FileExtension.jpeg}");
@@ -155,7 +149,7 @@ namespace BulkThumbnailCreator
             Console.ResetColor();
         }
 
-        public FileExtension ChooseExtension()
+        private FileExtension ChooseExtension()
         {
             ShowFileExtention();
             
@@ -175,6 +169,15 @@ namespace BulkThumbnailCreator
                     default: throw new ArgumentException("Invalid operation code.");
             }
 
+            Console.Clear();
+        }
+
+        private void OperationSuccessfullEnd()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Your operation was complete. Press any button to continue.");
+            Console.ReadKey();
+            Console.ResetColor();
             Console.Clear();
         }
     }
