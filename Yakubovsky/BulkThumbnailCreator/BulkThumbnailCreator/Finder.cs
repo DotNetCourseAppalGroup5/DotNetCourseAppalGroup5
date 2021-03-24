@@ -23,46 +23,104 @@ namespace BulkThumbnailCreator
             Console.ResetColor();
             
             int index = 1;
-            foreach (var item in files)
+            try
             {
-                item.Rename($"{newNameForAllFilesInFolder}.{index}.jpg");
-                index++;
+                foreach (var item in files)
+                {
+                    item.Rename($"{newNameForAllFilesInFolder}.{index}.jpg");
+                    index++;
+                }
             }
-
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("Your operation was complete. Press any button to continue.");
-            Console.ReadKey();
-            Console.ResetColor();
-            Console.Clear();
+            catch (Exception ex)
+            {
+                Console.WriteLine("It was an exception. " + ex.Message);
+                Thread.Sleep(3000);
+                Console.Clear();
+            }
+            finally
+            {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Your operation was complete. Press any button to continue.");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+            }
         }
 
         public void ResizeImages()
         {
-            int width,height;
+            int width=0,height=0;
             int index = 1;
-            
-            Console.Write("Enter image width: ");
-            int.TryParse(Console.ReadLine(), out width);
-            
-            Console.Write("Enter image height: ");
-            int.TryParse(Console.ReadLine(),out height);
 
+            TryParseMethod(ref width,ref height);
+            
             Console.Clear();
 
             string[] files = Directory.GetFiles(oldFilePath);
-            foreach (var item in files)
+            try
             {
-                Bitmap bmp = new Bitmap(item);
-                Bitmap image = new Bitmap(bmp, width, height);
-                image.Save($"{newFilePath}/{index}.jpg");
-                index++;
+                foreach (var item in files)
+                {
+                    Bitmap bmp = new Bitmap(item);
+                    Bitmap image = new Bitmap(bmp, width, height);
+                    image.Save($"{newFilePath}/{index}.jpg");
+                    index++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("It was an exception. " + ex.Message);
+                Thread.Sleep(3000);
+                Console.Clear();
+            }
+            finally
+            {
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("Your operation was complete. Press any button to continue.");
+                Console.ReadKey();
+                Console.ResetColor();
+                Console.Clear();
+            }
+        }
+
+
+        public void TryParseMethod(ref int width,ref int height)
+        {
+            string widthStr = null, heightStr = null;
+
+            bool widthConvert = true;
+            while (widthConvert)
+            {
+                Console.Write("Enter width, that you expect to see in your new image: ");
+                widthStr = Console.ReadLine();
+
+                if (!(int.TryParse(widthStr, out width)))
+                {
+                    Console.WriteLine("It must be an integer number. Try again.");
+                }
+                else
+                {
+                    widthConvert = false;
+                    Console.Clear();
+                }
             }
             
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("Your operation was complete. Press any button to continue.");
-            Console.ReadKey();
-            Console.ResetColor();
-            Console.Clear();
+            bool heightConvert = true;
+            while (heightConvert)
+            {
+                Console.Write("Enter height, that you expect to see in your new image: ");
+                heightStr = Console.ReadLine();
+
+                if (!(int.TryParse(heightStr, out height)))
+                {
+                    Console.WriteLine("It must be an integer number. Try again.");
+                }
+                else
+                {
+                    heightConvert = false;
+                    Console.Clear();
+                }
+            }
         }
 
     }
