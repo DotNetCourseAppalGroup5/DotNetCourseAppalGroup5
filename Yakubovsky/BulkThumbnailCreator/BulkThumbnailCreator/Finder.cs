@@ -16,6 +16,7 @@ namespace BulkThumbnailCreator
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Clear();
+                
                 Console.WriteLine("Oops.We can't find this directory.");
                 throw new DirectoryNotFoundException();
             }
@@ -65,6 +66,7 @@ namespace BulkThumbnailCreator
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Clear();
+                
                 Console.WriteLine("Oops.We can't find this directory.");
                 throw new DirectoryNotFoundException();
             }
@@ -180,3 +182,4 @@ namespace BulkThumbnailCreator
         }
     }
 }
+ 
