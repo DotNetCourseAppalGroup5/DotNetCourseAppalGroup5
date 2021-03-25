@@ -15,9 +15,9 @@ namespace BulkThumbnailCreator
             if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.Clear();
                 Console.WriteLine("Oops.We can't find this directory.");
-                Thread.Sleep(3000);
-                Environment.Exit(0);
+                throw new DirectoryNotFoundException();
             }
             
             DirectoryInfo directoryInfo = new DirectoryInfo(oldFilePath);
@@ -64,9 +64,9 @@ namespace BulkThumbnailCreator
             if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.Clear();
                 Console.WriteLine("Oops.We can't find this directory.");
-                Thread.Sleep(3000);
-                Environment.Exit(0);
+                throw new DirectoryNotFoundException();
             }
             
             FileExtension fileExtension = ChooseExtension();
@@ -168,8 +168,6 @@ namespace BulkThumbnailCreator
                     case '9': return FileExtension.tiff;
                     default: throw new ArgumentException("Invalid operation code.");
             }
-
-            Console.Clear();
         }
 
         private void OperationSuccessfullEnd()
