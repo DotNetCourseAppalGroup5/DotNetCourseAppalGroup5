@@ -12,15 +12,17 @@ namespace BulkThumbnailCreator
         public static void CreateProjectStructure()
         {
             SourceFiles = CreateFolder("sourceFilesPath");
-            ProcessedFiles = CreateFolder("processedFilasPath");
+            ProcessedFiles = CreateFolder("processedFilesPath");
         }
 
         private static string CreateFolder(string type)
         {
+            // declaring path to the project folders
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string projectDirectory = desktopPath + "\\Bulk Thumbnail Creator";
             string path = projectDirectory + ConfigurationManager.AppSettings.Get(type);
 
+            // checking if folder exists or not. If not, then create the needed one
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
