@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp14
 {
-   internal class Images
-    {   
+    internal class Images
+    {
         //My variables
         static int width, height;
         static int count = 0;
