@@ -2,13 +2,16 @@ using System.IO;
 using System;
 using System.Threading;
 using System.Drawing;
+using System.Configuration;
+using System.Collections.Specialized;
+using BulkThumbnailCreator.Properties;
 
 namespace BulkThumbnailCreator
 {
     public class Finder
     {
-        public const string oldFilePath = "/Users/tim143/Desktop/pathStart"; // Full path of old file
-        public const string newFilePath = "/Users/tim143/Desktop/pathEnd"; // Full path of new file
+        public string oldFilePath = ConfigurationManager.AppSettings.Get("PathStart"); // Full path of old file
+        public string newFilePath = ConfigurationManager.AppSettings.Get("PathEnd"); // Full path of new file
         
         public void RenameImages()
         {
@@ -17,7 +20,7 @@ namespace BulkThumbnailCreator
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Clear();
                 
-                Console.WriteLine("Oops.We can't find this directory.");
+                Console.WriteLine(Constansts.ErrorMessages.ErrorMessageDirectoryNotFound);
                 throw new DirectoryNotFoundException();
             }
             
@@ -58,16 +61,15 @@ namespace BulkThumbnailCreator
         {
             int width=0,height=0;
             int index = 1;
-
-            TryParseMethod(ref width,ref height);
-            Console.Clear();
+            
+            string widthConfig=ConfigurationManager.AppSettings.Get("Width");
+            width = int.Parse(widthConfig);
+            
+            string heightConfig=ConfigurationManager.AppSettings.Get("Height");
+            height = int.Parse(heightConfig);
 
             if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Clear();
-                
-                Console.WriteLine("Oops.We can't find this directory.");
                 throw new DirectoryNotFoundException();
             }
             
@@ -97,45 +99,6 @@ namespace BulkThumbnailCreator
             }
         }
         
-        private void TryParseMethod(ref int width,ref int height)
-        {
-            string widthStr = null, heightStr = null;
-
-            bool widthConvert = true;
-            while (widthConvert)
-            {
-                Console.Write("Enter width, that you expect to see in your new image: ");
-                widthStr = Console.ReadLine();
-
-                if (!(int.TryParse(widthStr, out width)))
-                {
-                    Console.WriteLine("It must be an integer number. Try again.");
-                }
-                else
-                {
-                    widthConvert = false;
-                    Console.Clear();
-                }
-            }
-            
-            bool heightConvert = true;
-            while (heightConvert)
-            {
-                Console.Write("Enter height, that you expect to see in your new image: ");
-                heightStr = Console.ReadLine();
-
-                if (!(int.TryParse(heightStr, out height)))
-                {
-                    Console.WriteLine("It must be an integer number. Try again.");
-                }
-                else
-                {
-                    heightConvert = false;
-                    Console.Clear();
-                }
-            }
-        }
-
         private void ShowFileExtention()
         { 
             Console.ForegroundColor = ConsoleColor.DarkBlue;

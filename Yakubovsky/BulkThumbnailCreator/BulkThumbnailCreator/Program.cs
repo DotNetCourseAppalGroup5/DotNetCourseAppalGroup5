@@ -3,12 +3,14 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Text;
+using BulkThumbnailCreator.Properties;
 
 namespace BulkThumbnailCreator
 {
     internal class Program
     {
         public delegate void ShowMenu();
+        
         public static void Main(string[] args)
         {
             CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
@@ -17,27 +19,26 @@ namespace BulkThumbnailCreator
             Finder finder = new Finder();
             ShowMenu showMenu = new ShowMenu(Menu);
             bool processRun = true;
+            
             while (processRun)
             {
                 showMenu?.Invoke();
-                char choice = Console.ReadKey().KeyChar;
+                MenuAction action;
+                Enum.TryParse(Console.ReadLine().ToLower(), out action);
                 Console.Clear();
 
-                switch (choice)
+                switch (action)
                 {
-                    case '1':
+                    case MenuAction.resize:
                         Task.Factory.StartNew(() => finder.ResizeImages()).Wait();
-                        
                         break;
-                    case '2':
+                    case MenuAction.rename:
                         Task.Factory.StartNew(() => finder.RenameImages()).Wait();
-                        
                         break;
-                    case '3':
+                    case MenuAction.exit:
                         processRun = false;
                         Thread.Sleep(3000);
-                        Console.WriteLine("\t\t\tSee you again!");
-                        
+                        Console.WriteLine(Constansts.UserNotifications.NotifyExit);
                         break;
                     default:
                         Console.Clear();
@@ -52,7 +53,7 @@ namespace BulkThumbnailCreator
             Console.WriteLine("1) Resize images.");
             Console.WriteLine("2) Rename images.");
             Console.WriteLine("3) Exit.");
-            Console.Write("Enter point: ");
+            Console.Write("Enter name of operation or point of operation: ");
             Console.ResetColor();
         }
     }
