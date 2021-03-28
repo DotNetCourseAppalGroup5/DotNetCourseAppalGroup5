@@ -12,19 +12,21 @@ namespace BulkThumbnailCreator
             // creating all necessary project folders
             DirectoryHandler.CreateProjectStructure();
 
-            // creating cancellation token for tasks
-            CancellationTokenSource tokenSource = new CancellationTokenSource();
-            CancellationToken token = tokenSource.Token;
-
+            // starting point for a program
             bool isProgramStarted = true;
 
             SayHello();
 
             do
             {
-                ShowMenu();
+                // creating cancellation token for tasks
+                CancellationTokenSource tokenSource = new CancellationTokenSource();
+                CancellationToken token = tokenSource.Token;
 
                 Task task;
+
+                // showing user main menu with possible actions
+                ShowMenu();
 
                 string userInput = Console.ReadLine().Trim().ToUpper();
                 Enum.TryParse(userInput, out MenuActions action);
@@ -36,7 +38,10 @@ namespace BulkThumbnailCreator
                         ImageHandler.GetSize(out ushort width, out ushort height);
                         task = Task.Run(() => ImageHandler.ResizeImages(width, height, token));
 
-                        AskForOperationCancel(tokenSource);
+                        AskForOperationCancel(tokenSource, out bool isResizeCancelled);
+
+                        if (isResizeCancelled)
+                            Console.ReadKey();
 
                         break;
 
@@ -45,7 +50,10 @@ namespace BulkThumbnailCreator
                         ImageHandler.GetName(out string newImageName);
                         task = Task.Run(() => ImageHandler.RenameImages(newImageName, token));
 
-                        AskForOperationCancel(tokenSource);
+                        AskForOperationCancel(tokenSource, out bool isRenameCancelled);
+
+                        if (isRenameCancelled)
+                            Console.ReadKey();
 
                         break;
 
@@ -72,14 +80,18 @@ namespace BulkThumbnailCreator
             while (isProgramStarted);
         }
 
-        private static void AskForOperationCancel(CancellationTokenSource tokenSource)
+        private static void AskForOperationCancel(CancellationTokenSource tokenSource, out bool isCancelled)
         {
             TextColorizer.WriteTextInColor("\nTo abort operation type Q. ", ConsoleColor.Yellow, false);
 
+            isCancelled = false;
             string userInput = Console.ReadLine().Trim().ToUpper();
 
             if (userInput == "Q")
+            {
                 tokenSource.Cancel();
+                isCancelled = true;
+            }
         }
 
         private static void SayHello()
