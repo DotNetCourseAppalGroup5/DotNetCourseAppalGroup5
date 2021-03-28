@@ -10,9 +10,11 @@ namespace BulkThumbnailCreator
     {
         public static string SourceFiles { get; private set; }
         public static string ProcessedFiles { get; private set; }
+        public static string Logs { get; private set; }
 
         public static void CreateProjectStructure()
         {
+            Logs = CreateFolder("logsFolderPath");
             SourceFiles = CreateFolder("sourceFilesPath");
             ProcessedFiles = CreateFolder("processedFilesPath");
         }
@@ -27,7 +29,11 @@ namespace BulkThumbnailCreator
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
-                EventLogger.WriteLogs($"The following folder has been created: {path}", EventLogEntryType.Information);
+
+                string message = $"The following folder has been created: {path}";
+
+                EventLogger.WriteLogs(message, EventLogEntryType.Information);
+                BTCLogger.WriteLocalLogs(message);
             }
 
             return path;

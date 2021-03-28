@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Text;
 using BulkThumbnailCreator.Extras;
 
 namespace BulkThumbnailCreator
@@ -11,6 +12,10 @@ namespace BulkThumbnailCreator
         {
             // creating source for Windows Event Viewer
             EventLogger.CreateEventViewerSource();
+
+            // setting up text encoding
+            Console.InputEncoding = Encoding.Unicode;
+            Console.OutputEncoding = Encoding.Unicode;
 
             // creating all necessary project folders
             DirectoryHandler.CreateProjectStructure();

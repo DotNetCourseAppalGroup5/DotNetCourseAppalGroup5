@@ -35,8 +35,10 @@ namespace BulkThumbnailCreator.Extras
         {
             using (EventLog el = new EventLog(LogName))
             {
+                string now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fffff");
+
                 el.Source = SourceName;
-                el.WriteEntry($"[{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fffff")}] " + message, type, 101, 1);
+                el.WriteEntry($"[{now}] " + message, type, 101, 1);
             }
         }
     }

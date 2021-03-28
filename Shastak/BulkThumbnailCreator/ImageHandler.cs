@@ -39,19 +39,24 @@ namespace BulkThumbnailCreator
                 // if image is successfully processed it goes to the processed files directory
                 try
                 {
+                    BTCLogger.WriteLocalLogs($"Starting resizing file {files[i].Name}");
+
                     Bitmap sourceImage = new Bitmap(filenames[i]);
                     Bitmap imageToResize = new Bitmap(sourceImage, width, height);
-                    imageToResize.Save($"{DirectoryHandler.ProcessedFiles}\\{files[i].Name}{files[i].Extension}");
+                    imageToResize.Save($"{DirectoryHandler.ProcessedFiles}\\{files[i].Name}");
 
                     processedFiles++;
 
                     sourceImage.Dispose();
                     imageToResize.Dispose();
+
+                    BTCLogger.WriteLocalLogs($"File {files[i].Name} is resized succesfully");
                 }
 
                 // if some exception is catched (e.g. file is not an image), then the file is skipped and amount of such files is incremented
-                catch
+                catch (Exception ex)
                 {
+                    BTCLogger.WriteLocalLogs($"Error during resizing {files[i].Name}. Error message: {ex.Message}");
                     skippedFiles++;
                 }
             }
@@ -89,6 +94,8 @@ namespace BulkThumbnailCreator
                 // if image is succefully processed it goes to the processed files directory
                 try
                 {
+                    BTCLogger.WriteLocalLogs($"Starting renaming file {files[i].Name}");
+
                     Bitmap imageToRename = new Bitmap(filenames[i]);
                     imageToRename.Save($"{DirectoryHandler.ProcessedFiles}\\{newImageName} ({imageNumber}){files[i].Extension}");
 
@@ -96,11 +103,14 @@ namespace BulkThumbnailCreator
                     processedFiles++;
 
                     imageToRename.Dispose();
+
+                    BTCLogger.WriteLocalLogs($"File {files[i].Name} is renamed succesfully");
                 }
 
                 // if some exception is catched (e.g. file is not an image), then the file is skipped and amount of such files is incremented
-                catch
+                catch (Exception ex)
                 {
+                    BTCLogger.WriteLocalLogs($"Error during resizing {files[i].Name}. Error message: {ex.Message}");
                     skippedFiles++;
                 }
             }
@@ -187,6 +197,9 @@ namespace BulkThumbnailCreator
             // writing log entries to the Event Viewer
             EventLogEntryType eventLogType = isOperationAborted ? EventLogEntryType.Warning : EventLogEntryType.Information;
             EventLogger.WriteLogs($"{message} Processed images: {processedFiles}, skipped files: {skippedFiles}.", eventLogType);
+
+            // writing local logs
+            BTCLogger.WriteLocalLogs($"{message} Processed images: {processedFiles}, skipped files: {skippedFiles}");
 
             TextColorizer.WriteTextInColor("\nPress Enter to get back to the main menu..", ConsoleColor.Yellow);
         }
