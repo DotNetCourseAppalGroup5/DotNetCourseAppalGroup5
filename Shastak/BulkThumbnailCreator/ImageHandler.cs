@@ -173,9 +173,9 @@ namespace BulkThumbnailCreator
         private static void DisplayOperationResult(bool isOperationAborted, string message, int processedFiles, int skippedFiles)
         {
             if (isOperationAborted)
-                TextColorizer.WriteTextInColor($"\n{message}", ConsoleColor.Yellow);
+                TextColorizer.WriteTextInColor($"\n{message}", ConsoleColor.Red);
             else
-                TextColorizer.WriteTextInColor($"\n{message}", ConsoleColor.Green);
+                TextColorizer.WriteTextInColor($"\n\n{message}", ConsoleColor.Green);
 
             if (processedFiles != 0)
                 Console.WriteLine($"Processed images: {processedFiles}");
