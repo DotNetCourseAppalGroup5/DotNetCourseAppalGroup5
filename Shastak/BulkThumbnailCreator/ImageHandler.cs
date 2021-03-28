@@ -111,7 +111,7 @@ namespace BulkThumbnailCreator
         public static void GetName(out string name)
         {
             // asking user for new name for the images
-            TextColorizer.WriteTextInColor("Please enter new name for the files: ", ConsoleColor.Yellow, false);
+            TextColorizer.WriteTextInColor("\nPlease enter new name for the files: ", ConsoleColor.Yellow, false);
 
             name = Console.ReadLine().Trim();
         }
@@ -119,7 +119,7 @@ namespace BulkThumbnailCreator
         public static void GetSize(out ushort width, out ushort height)
         {
             // asking user for size in pixels for each dimension
-            TextColorizer.WriteTextInColor("PLEASE PAY ATTENTION!", ConsoleColor.Red);
+            TextColorizer.WriteTextInColor("\nPLEASE PAY ATTENTION!", ConsoleColor.Red);
             Console.WriteLine("To avoid huge usage of your hard drive memory the maximum size for one dimesion equals to 4096 pixels.");
 
             TextColorizer.WriteTextInColor("\nPlease enter preferable width: ", ConsoleColor.Yellow, false);
@@ -182,6 +182,8 @@ namespace BulkThumbnailCreator
 
             if (skippedFiles != 0)
                 Console.WriteLine($"Skipped files: {skippedFiles}");
+
+            TextColorizer.WriteTextInColor("\nPress Enter to get back to the main menu..", ConsoleColor.Yellow);
         }
     }
 }
