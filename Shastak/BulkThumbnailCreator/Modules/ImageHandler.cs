@@ -34,7 +34,7 @@ namespace BulkThumbnailCreator.Modules
                     isOperationAborted = true;
                     skippedFiles = totalFiles - processedFiles;
 
-                    DisplayOperationResult(isOperationAborted, "Operation was aborted by user.", processedFiles, skippedFiles);
+                    DisplayOperationResult(isOperationAborted, $"Operation was aborted by {Environment.UserName}.", processedFiles, skippedFiles);
 
                     return;
                 }
@@ -100,7 +100,7 @@ namespace BulkThumbnailCreator.Modules
                     isOperationAborted = true;
                     skippedFiles = totalFiles - processedFiles;
 
-                    DisplayOperationResult(isOperationAborted, "Operation was aborted by user.", processedFiles, skippedFiles);
+                    DisplayOperationResult(isOperationAborted, $"Operation was aborted by {Environment.UserName}.", processedFiles, skippedFiles);
                 }
 
                 // if image is succefully processed it goes to the processed files directory
