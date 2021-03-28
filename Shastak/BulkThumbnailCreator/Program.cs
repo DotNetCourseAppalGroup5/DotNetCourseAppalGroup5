@@ -28,6 +28,9 @@ namespace BulkThumbnailCreator
 
             do
             {
+                // getting files from the source directory
+                ImageHandler.GetFiles();
+
                 // creating cancellation token for tasks
                 CancellationTokenSource tokenSource = new CancellationTokenSource();
                 CancellationToken token = tokenSource.Token;

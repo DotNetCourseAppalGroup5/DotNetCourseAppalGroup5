@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using BulkThumbnailCreator.Modules;
 
 namespace BulkThumbnailCreator.Extras
 {

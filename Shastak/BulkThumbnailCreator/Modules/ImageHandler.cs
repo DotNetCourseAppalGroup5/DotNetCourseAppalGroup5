@@ -9,17 +9,17 @@ namespace BulkThumbnailCreator.Modules
 {
     public static class ImageHandler
     {
+        private static FileInfo[] Files { get; set; }
+        private static string[] Filenames { get; set; }
+
         public static void ResizeImages(ushort width, ushort height, CancellationToken token)
         {
             // deleting all the files in the processed files folder
             ClearProcessedFilesFolder();
 
-            // getting files from the source directory
-            FileInfo[] files = GetFiles(out string[] filenames);
-
             // starting working with images
             bool isOperationAborted = false;
-            int totalFiles = filenames.Length;
+            int totalFiles = Filenames.Length;
             int processedFiles = 0;
             int skippedFiles = 0;
 
@@ -39,24 +39,24 @@ namespace BulkThumbnailCreator.Modules
                 // if image is successfully processed it goes to the processed files directory
                 try
                 {
-                    BTCLogger.WriteLocalLogs($"Starting resizing file {files[i].Name}");
+                    BTCLogger.WriteLocalLogs($"Starting resizing file {Files[i].Name}");
 
-                    Bitmap sourceImage = new Bitmap(filenames[i]);
+                    Bitmap sourceImage = new Bitmap(Filenames[i]);
                     Bitmap imageToResize = new Bitmap(sourceImage, width, height);
-                    imageToResize.Save($"{DirectoryHandler.ProcessedFiles}\\{files[i].Name}");
+                    imageToResize.Save($"{DirectoryHandler.ProcessedFiles}\\{Files[i].Name}");
 
                     processedFiles++;
 
                     sourceImage.Dispose();
                     imageToResize.Dispose();
 
-                    BTCLogger.WriteLocalLogs($"File {files[i].Name} is resized succesfully");
+                    BTCLogger.WriteLocalLogs($"File {Files[i].Name} is resized succesfully");
                 }
 
                 // if some exception is catched (e.g. file is not an image), then the file is skipped and amount of such files is incremented
                 catch (Exception ex)
                 {
-                    BTCLogger.WriteLocalLogs($"Error during resizing {files[i].Name}. Error message: {ex.Message}");
+                    BTCLogger.WriteLocalLogs($"Error during resizing {Files[i].Name}. Error message: {ex.Message}");
                     skippedFiles++;
                 }
             }
@@ -70,17 +70,14 @@ namespace BulkThumbnailCreator.Modules
             // deleting all the files in the processed files folder
             ClearProcessedFilesFolder();
 
-            // getting files from the source directory
-            FileInfo[] files = GetFiles(out string[] filenames);
-
             // starting working with images
             bool isOperationAborted = false;
-            int totalFiles = filenames.Length;
+            int totalFiles = Filenames.Length;
             int processedFiles = 0;
             int skippedFiles = 0;
             int imageNumber = 0;
 
-            for (int i = 0; i < filenames.Length; i++)
+            for (int i = 0; i < Filenames.Length; i++)
             {
                 // if user cancels the operation it will break and show how much files are done and how much are left
                 if (token.IsCancellationRequested)
@@ -94,23 +91,23 @@ namespace BulkThumbnailCreator.Modules
                 // if image is succefully processed it goes to the processed files directory
                 try
                 {
-                    BTCLogger.WriteLocalLogs($"Starting renaming file {files[i].Name}");
+                    BTCLogger.WriteLocalLogs($"Starting renaming file {Files[i].Name}");
 
-                    Bitmap imageToRename = new Bitmap(filenames[i]);
-                    imageToRename.Save($"{DirectoryHandler.ProcessedFiles}\\{newImageName} ({imageNumber}){files[i].Extension}");
+                    Bitmap imageToRename = new Bitmap(Filenames[i]);
+                    imageToRename.Save($"{DirectoryHandler.ProcessedFiles}\\{newImageName} ({imageNumber}){Files[i].Extension}");
 
                     imageNumber++;
                     processedFiles++;
 
                     imageToRename.Dispose();
 
-                    BTCLogger.WriteLocalLogs($"File {files[i].Name} is renamed succesfully");
+                    BTCLogger.WriteLocalLogs($"File {Files[i].Name} is renamed succesfully");
                 }
 
                 // if some exception is catched (e.g. file is not an image), then the file is skipped and amount of such files is incremented
                 catch (Exception ex)
                 {
-                    BTCLogger.WriteLocalLogs($"Error during resizing {files[i].Name}. Error message: {ex.Message}");
+                    BTCLogger.WriteLocalLogs($"Error during resizing {Files[i].Name}. Error message: {ex.Message}");
                     skippedFiles++;
                 }
             }
@@ -140,12 +137,12 @@ namespace BulkThumbnailCreator.Modules
             height = ParsingChecker.SetPixels();
         }
 
-        private static FileInfo[] GetFiles(out string[] filenames)
+        public static void GetFiles()
         {
             // getting files from the source directory and counting amount of files
             DirectoryInfo folder = new DirectoryInfo(DirectoryHandler.SourceFiles);
-            FileInfo[] files = folder.GetFiles();
-            int filesCount = files.Length;
+            Files = folder.GetFiles();
+            int filesCount = Files.Length;
 
             // if there are no files in the source folder show a warning message for user to add files
             while (filesCount == 0)
@@ -158,14 +155,12 @@ namespace BulkThumbnailCreator.Modules
 
                 Console.ReadKey();
 
-                files = folder.GetFiles();
-                filesCount = files.Length;
+                Files = folder.GetFiles();
+                filesCount = Files.Length;
             }
 
             // getting names of all the files in the source folder
-            filenames = Directory.GetFiles(DirectoryHandler.SourceFiles);
-
-            return files;
+            Filenames = Directory.GetFiles(DirectoryHandler.SourceFiles);
         }
 
         private static void ClearProcessedFilesFolder()
