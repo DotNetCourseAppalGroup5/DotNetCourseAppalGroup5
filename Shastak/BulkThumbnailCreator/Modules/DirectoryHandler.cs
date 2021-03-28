@@ -4,7 +4,7 @@ using System.IO;
 using System.Diagnostics;
 using BulkThumbnailCreator.Extras;
 
-namespace BulkThumbnailCreator
+namespace BulkThumbnailCreator.Modules
 {
     public static class DirectoryHandler
     {

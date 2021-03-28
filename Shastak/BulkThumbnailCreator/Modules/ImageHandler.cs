@@ -5,7 +5,7 @@ using System.Threading;
 using System.Diagnostics;
 using BulkThumbnailCreator.Extras;
 
-namespace BulkThumbnailCreator
+namespace BulkThumbnailCreator.Modules
 {
     public static class ImageHandler
     {

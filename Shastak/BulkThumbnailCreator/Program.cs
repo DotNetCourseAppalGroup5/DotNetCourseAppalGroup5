@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Text;
+using BulkThumbnailCreator.Modules;
 using BulkThumbnailCreator.Extras;
 
 namespace BulkThumbnailCreator
