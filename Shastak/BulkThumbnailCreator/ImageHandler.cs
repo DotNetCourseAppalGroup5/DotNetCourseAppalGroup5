@@ -2,6 +2,7 @@
 using System.IO;
 using System.Drawing;
 using System.Threading;
+using System.Diagnostics;
 using BulkThumbnailCreator.Extras;
 
 namespace BulkThumbnailCreator
@@ -182,6 +183,10 @@ namespace BulkThumbnailCreator
 
             if (skippedFiles != 0)
                 Console.WriteLine($"Skipped files: {skippedFiles}");
+
+            // writing log entries to the Event Viewer
+            EventLogEntryType eventLogType = isOperationAborted ? EventLogEntryType.Warning : EventLogEntryType.Information;
+            EventLogger.WriteLogs($"{message} Processed images: {processedFiles}, skipped files: {skippedFiles}.", eventLogType);
 
             TextColorizer.WriteTextInColor("\nPress Enter to get back to the main menu..", ConsoleColor.Yellow);
         }

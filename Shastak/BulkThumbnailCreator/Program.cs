@@ -9,6 +9,9 @@ namespace BulkThumbnailCreator
     {
         static void Main(string[] args)
         {
+            // creating source for Windows Event Viewer
+            EventLogger.CreateEventViewerSource();
+
             // creating all necessary project folders
             DirectoryHandler.CreateProjectStructure();
 
