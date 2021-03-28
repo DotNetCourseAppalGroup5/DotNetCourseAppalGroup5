@@ -22,6 +22,9 @@ namespace BulkThumbnailCreator.Modules
             int totalFiles = Filenames.Length;
             int processedFiles = 0;
             int skippedFiles = 0;
+            int filesDone = 0;
+
+            int length = 0;
 
             for (int i = 0; i < totalFiles; i++)
             {
@@ -46,6 +49,7 @@ namespace BulkThumbnailCreator.Modules
                     imageToResize.Save($"{DirectoryHandler.ProcessedFiles}\\{Files[i].Name}");
 
                     processedFiles++;
+                    filesDone++;
 
                     sourceImage.Dispose();
                     imageToResize.Dispose();
@@ -58,6 +62,14 @@ namespace BulkThumbnailCreator.Modules
                 {
                     BTCLogger.WriteLocalLogs($"Error during resizing {Files[i].Name}. Error message: {ex.Message}");
                     skippedFiles++;
+                    filesDone++;
+                }
+
+                // showing the progress of processing
+                finally
+                {
+                    DisplayProgress.Show(totalFiles, filesDone, ref length);
+                    Console.CursorLeft = DisplayProgress.CursorOffset;
                 }
             }
 
@@ -76,6 +88,9 @@ namespace BulkThumbnailCreator.Modules
             int processedFiles = 0;
             int skippedFiles = 0;
             int imageNumber = 0;
+            int filesDone = 0;
+
+            int length = 0;
 
             for (int i = 0; i < Filenames.Length; i++)
             {
@@ -98,6 +113,7 @@ namespace BulkThumbnailCreator.Modules
 
                     imageNumber++;
                     processedFiles++;
+                    filesDone++;
 
                     imageToRename.Dispose();
 
@@ -109,6 +125,14 @@ namespace BulkThumbnailCreator.Modules
                 {
                     BTCLogger.WriteLocalLogs($"Error during resizing {Files[i].Name}. Error message: {ex.Message}");
                     skippedFiles++;
+                    filesDone++;
+                }
+
+                // showing the progress of processing
+                finally
+                {
+                    DisplayProgress.Show(totalFiles, filesDone, ref length);
+                    Console.CursorLeft = DisplayProgress.CursorOffset;
                 }
             }
 
@@ -120,8 +144,9 @@ namespace BulkThumbnailCreator.Modules
         {
             // asking user for new name for the images
             TextColorizer.WriteTextInColor("\nPlease enter new name for the files: ", ConsoleColor.Yellow, false);
-
             name = Console.ReadLine().Trim();
+
+            Console.WriteLine();
         }
 
         public static void GetSize(out ushort width, out ushort height)
@@ -135,6 +160,8 @@ namespace BulkThumbnailCreator.Modules
 
             TextColorizer.WriteTextInColor("Please enter preferable heigth: ", ConsoleColor.Yellow, false);
             height = ParsingChecker.SetPixels();
+
+            Console.WriteLine();
         }
 
         public static void GetFiles()
