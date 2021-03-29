@@ -14,21 +14,21 @@ namespace BulkThumbnailCreator.Extras
 
             using (StreamWriter sw = new StreamWriter(LogsFilename, true))
             {
-                string now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fffff");
+                string now = DateTime.Now.ToString(Constants.loggerTimeNow);
                 sw.WriteLine($"[{now}] {message}.");
             }
         }
 
         private static void CreateLogsFileForToday()
         {
-            string today = DateTime.Now.ToString("yyyy-MM-dd");
+            string today = DateTime.Now.ToString(Constants.loggerTimeToday);
             string filename = @$"{DirectoryHandler.Logs}\{today}_logs.txt";
 
             if (!File.Exists(filename))
             {
                 using (StreamWriter sw = new StreamWriter(filename, true))
                 {
-                    string now = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fffff");
+                    string now = DateTime.Now.ToString(Constants.loggerTimeNow);
                     sw.WriteLine($"[{now}] Log file is created.");
                 }
             }

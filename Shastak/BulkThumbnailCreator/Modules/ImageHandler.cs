@@ -34,7 +34,7 @@ namespace BulkThumbnailCreator.Modules
                     isOperationAborted = true;
                     skippedFiles = totalFiles - processedFiles;
 
-                    DisplayOperationResult(isOperationAborted, $"Operation was aborted by {Environment.UserName}.", processedFiles, skippedFiles);
+                    DisplayOperationResult(isOperationAborted, $"{Constants.operationAborted} {Environment.UserName}.", processedFiles, skippedFiles);
 
                     return;
                 }
@@ -74,7 +74,7 @@ namespace BulkThumbnailCreator.Modules
             }
 
             // displaying operation results
-            DisplayOperationResult(isOperationAborted, "Operation is completed successfully!", processedFiles, skippedFiles);
+            DisplayOperationResult(isOperationAborted, Constants.operationCompleted, processedFiles, skippedFiles);
         }
 
         public static void RenameImages(string newImageName, CancellationToken token)
@@ -100,7 +100,7 @@ namespace BulkThumbnailCreator.Modules
                     isOperationAborted = true;
                     skippedFiles = totalFiles - processedFiles;
 
-                    DisplayOperationResult(isOperationAborted, $"Operation was aborted by {Environment.UserName}.", processedFiles, skippedFiles);
+                    DisplayOperationResult(isOperationAborted, $"{Constants.operationAborted} {Environment.UserName}.", processedFiles, skippedFiles);
                 }
 
                 // if image is succefully processed it goes to the processed files directory
@@ -137,7 +137,7 @@ namespace BulkThumbnailCreator.Modules
             }
 
             // displaying operation results
-            DisplayOperationResult(isOperationAborted, "Operation is completed successfully!", processedFiles, skippedFiles);
+            DisplayOperationResult(isOperationAborted, Constants.operationCompleted, processedFiles, skippedFiles);
         }
 
         public static void GetName(out string name)
@@ -174,11 +174,7 @@ namespace BulkThumbnailCreator.Modules
             // if there are no files in the source folder show a warning message for user to add files
             while (filesCount == 0)
             {
-                TextColorizer.WriteTextInColor(
-                    "Your source folder doesn't contain any files! \n" +
-                    "Please add some files in the source folder and press any key to continue. \n",
-                    ConsoleColor.Yellow
-                    );
+                TextColorizer.WriteTextInColor(Constants.noFilesInSourceFolder, ConsoleColor.Yellow);
 
                 Console.ReadKey();
 

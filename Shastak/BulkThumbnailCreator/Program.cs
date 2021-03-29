@@ -71,7 +71,7 @@ namespace BulkThumbnailCreator
 
                     // exiting the program
                     case MenuActions.Exit:
-                        TextColorizer.WriteTextInColor("\nThank you for using BulkThumbnailCreator. Come back soon!", ConsoleColor.Green);
+                        TextColorizer.WriteTextInColor($"\n{Constants.sayGoodbyePolitely}", ConsoleColor.Green);
                         isProgramStarted = false;
 
                         Console.ReadKey();
@@ -80,7 +80,7 @@ namespace BulkThumbnailCreator
 
                     // handling incorrect input
                     default:
-                        TextColorizer.WriteTextInColor("\nUnrecognized command. Press any key to get back to the main menu..", ConsoleColor.Yellow);
+                        TextColorizer.WriteTextInColor($"\n{Constants.unrecognizedCommand}", ConsoleColor.Yellow);
                         
                         Console.ReadKey();
                         
@@ -111,19 +111,15 @@ namespace BulkThumbnailCreator
             Console.Clear();
 
             Console.Write("Welcome to the ");
-            TextColorizer.WriteTextInColor("BulkThumbnailCreator", ConsoleColor.Green, false);
-            Console.WriteLine("! \nThis program allows you to resize or rename your images.");
-            Console.WriteLine("All your processed images will be stored in Processed Files folder.");
-            Console.WriteLine("Please make sure you have all needed images in Source Files folder.");
+            TextColorizer.WriteTextInColor(Constants.appName, ConsoleColor.Green, false);
+            Console.WriteLine($"! \n{Constants.appDescription}");
             Console.WriteLine();
         }
 
         private static void ShowMenu()
         {
             TextColorizer.WriteTextInColor("Please type one of the following commands (without quotes): ", ConsoleColor.Yellow);
-            Console.WriteLine("'1' - Resize images");
-            Console.WriteLine("'2' - Rename images");
-            Console.WriteLine("'3' - Exit program");
+            Console.WriteLine(Constants.mainMenu);
             TextColorizer.WriteTextInColor("Your input: ", ConsoleColor.Green, false);
         }
     }
