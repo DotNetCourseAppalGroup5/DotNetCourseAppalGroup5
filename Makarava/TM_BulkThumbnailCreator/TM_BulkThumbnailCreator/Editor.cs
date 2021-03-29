@@ -14,6 +14,19 @@ namespace TM_BulkThumbnailCreator
         //set folder for files after changes
         public static string folderAfterChanges = ConfigurationManager.AppSettings.Get("folderAfterChanges");
 
+        public static void CreateFolders()
+        {  
+            if (!Directory.Exists(initialFolder))
+            {
+                Directory.CreateDirectory(initialFolder);
+            }      
+
+            if (!Directory.Exists(folderAfterChanges))
+            {
+                Directory.CreateDirectory(folderAfterChanges);
+            }
+        }
+
         //set pictures Width
         public static int width = int.Parse(ConfigurationManager.AppSettings.Get("pictureWidth"));
 
@@ -39,7 +52,7 @@ namespace TM_BulkThumbnailCreator
         {
             //get all files
             FileInfo[] files = FindPictures(out string[] pictureNames);
-            
+
             int totalFiles = pictureNames.Length;
 
             for (int i = 0; i < totalFiles; i++)
@@ -49,7 +62,7 @@ namespace TM_BulkThumbnailCreator
                 {
                     Console.WriteLine(Constant.cancellationMessage);
 
-                    return; 
+                    return;
                 }
 
                 // if image is successfully processed it goes to the processed files directory
@@ -60,10 +73,10 @@ namespace TM_BulkThumbnailCreator
                     imageToResize.Save($"{folderAfterChanges}\\{files[i].Name}");
                 }
 
-                catch 
+                catch
                 {
                     Constant.Warning(files[i].Name);
-                }                
+                }
             }
 
             Console.WriteLine($"{Constant.notificationToReturnToMainMenu}");
@@ -73,7 +86,7 @@ namespace TM_BulkThumbnailCreator
         {
             // getting files from the source directory
             FileInfo[] files = FindPictures(out string[] pictureNames);
-            
+
             int imageIndex = 0;
 
             for (int i = 0; i < pictureNames.Length; i++)
@@ -93,7 +106,7 @@ namespace TM_BulkThumbnailCreator
 
                     imageIndex++;
                 }
-                
+
                 catch
                 {
                     Constant.Warning(files[i].Name);
