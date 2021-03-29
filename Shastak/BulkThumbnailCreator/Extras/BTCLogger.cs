@@ -4,7 +4,7 @@ using BulkThumbnailCreator.Modules;
 
 namespace BulkThumbnailCreator.Extras
 {
-    public static class BTCLogger
+    public static class BtcLogger
     {
         private static string LogsFilename { get; set; }
 

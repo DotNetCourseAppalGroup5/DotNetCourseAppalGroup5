@@ -33,7 +33,7 @@ namespace BulkThumbnailCreator.Modules
                 string message = $"The following folder has been created: {path}";
 
                 EventLogger.WriteLogs(message, EventLogEntryType.Information);
-                BTCLogger.WriteLocalLogs(message);
+                BtcLogger.WriteLocalLogs(message);
             }
 
             return path;
