@@ -101,6 +101,8 @@ namespace BulkThumbnailCreator.Modules
                     skippedFiles = totalFiles - processedFiles;
 
                     DisplayOperationResult(isOperationAborted, $"{Constants.operationAborted} {Environment.UserName}.", processedFiles, skippedFiles);
+
+                    return;
                 }
 
                 // if image is succefully processed it goes to the processed files directory
