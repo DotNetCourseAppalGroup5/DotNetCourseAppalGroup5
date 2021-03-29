@@ -1,0 +1,14 @@
+/Users/tim143/Desktop/BulkThumbnailCreator/BulkThumbnailCreator/bin/Debug/BulkThumbnailCreator.exe.config
+/Users/tim143/Desktop/BulkThumbnailCreator/BulkThumbnailCreator/bin/Debug/BulkThumbnailCreator.exe
+/Users/tim143/Desktop/BulkThumbnailCreator/BulkThumbnailCreator/bin/Debug/BulkThumbnailCreator.pdb
+/Users/tim143/Desktop/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.csprojAssemblyReference.cache
+/Users/tim143/Desktop/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.csproj.CoreCompileInputs.cache
+/Users/tim143/Desktop/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.exe
+/Users/tim143/Desktop/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.pdb
+/Users/tim143/Desktop/c# courses/DotNetCourseAppalGroup5/Yakubovski/BulkThumbnailCreator/BulkThumbnailCreator/BulkThumbnailCreator/bin/Debug/BulkThumbnailCreator.exe.config
+/Users/tim143/Desktop/c# courses/DotNetCourseAppalGroup5/Yakubovski/BulkThumbnailCreator/BulkThumbnailCreator/BulkThumbnailCreator/bin/Debug/BulkThumbnailCreator.exe
+/Users/tim143/Desktop/c# courses/DotNetCourseAppalGroup5/Yakubovski/BulkThumbnailCreator/BulkThumbnailCreator/BulkThumbnailCreator/bin/Debug/BulkThumbnailCreator.pdb
+/Users/tim143/Desktop/c# courses/DotNetCourseAppalGroup5/Yakubovski/BulkThumbnailCreator/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.csprojAssemblyReference.cache
+/Users/tim143/Desktop/c# courses/DotNetCourseAppalGroup5/Yakubovski/BulkThumbnailCreator/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.csproj.CoreCompileInputs.cache
+/Users/tim143/Desktop/c# courses/DotNetCourseAppalGroup5/Yakubovski/BulkThumbnailCreator/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.exe
+/Users/tim143/Desktop/c# courses/DotNetCourseAppalGroup5/Yakubovski/BulkThumbnailCreator/BulkThumbnailCreator/BulkThumbnailCreator/obj/Debug/BulkThumbnailCreator.pdb
