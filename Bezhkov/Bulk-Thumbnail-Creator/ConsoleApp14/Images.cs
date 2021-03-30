@@ -56,8 +56,8 @@ namespace ConsoleApp14
             {
                 if (token.IsCancellationRequested)
                 {
-                    if(EventActionMenu!=null)
-                    EventActionMenu();
+                    if (EventActionMenu != null)
+                        EventActionMenu();
                     return;
                 }
 
@@ -68,9 +68,8 @@ namespace ConsoleApp14
             }
 
             if (EventResultInfo != null)
-                EventResultInfo();
+                EventResultInfo();      
         }
-
 
         //Method rename my images
         public void Rename(object name)
@@ -84,8 +83,7 @@ namespace ConsoleApp14
                 File.Move(item, $"{path2}\\{(string)name} {count} .jpg");
             }
 
-            if (EventResultRenameInfo != null)
-                EventResultRenameInfo();
+                EventResultRenameInfo?.Invoke();
         }
     }
 }

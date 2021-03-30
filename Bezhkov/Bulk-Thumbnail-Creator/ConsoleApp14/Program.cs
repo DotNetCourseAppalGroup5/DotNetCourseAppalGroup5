@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp14
 {
-    public class Program
+    internal class Program
     {
         #region
         //Homework information
-        private static void Info()        
+        private static void Info()
         {
             Console.WriteLine(new string('-', 119));
             Console.ForegroundColor = ConsoleColor.Green;
@@ -26,11 +26,13 @@ namespace ConsoleApp14
         //Result operation Rename
         private static void ResultRenameInfo()
         {
+            Console.Clear();
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("All image rename!!!!");
             Console.WriteLine();
             Console.ResetColor();
+            ActionMenu();
         }
 
         //Result operation Resize
@@ -39,7 +41,7 @@ namespace ConsoleApp14
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("All image resize!!!!!!!!");
-            Console.WriteLine();
+            Console.WriteLine("press any button to continue");
             Console.ResetColor();
         }
 
@@ -72,12 +74,20 @@ namespace ConsoleApp14
             Console.WriteLine();
             Console.ResetColor();
         }
+
+        public static void Decoration()
+        {
+            Console.Clear();
+            Console.WriteLine(new string('-', 119));
+            Console.WriteLine("Task canceled");
+            Console.WriteLine(new string('-', 119));
+        }
         #endregion
         static void Main(string[] args)
         {
             Images image = new Images(true);
 
-            image.EventActionMenu +=ActionMenu;
+            image.EventActionMenu += ActionMenu;
             image.EventResultInfo += ResultInfo;
             image.EventResultRenameInfo += ResultRenameInfo;
 
@@ -108,10 +118,7 @@ namespace ConsoleApp14
                             if (s == "Y" || s == "y")
                             {
                                 cancelTokenSource.Cancel();
-                                Console.Clear();
-                                Console.WriteLine(new string('-', 119));
-                                Console.WriteLine("Task canceled");
-                                Console.WriteLine(new string('-', 119));
+                                Decoration();
                             }
                         }
 
