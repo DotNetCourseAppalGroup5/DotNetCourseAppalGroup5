@@ -13,7 +13,7 @@ namespace BulkThumbnailCreator
         private string oldFilePath = ConfigurationManager.AppSettings.Get("PathStart"); // Full path of old file
         private string newFilePath = ConfigurationManager.AppSettings.Get("PathEnd"); // Full path of new file
         
-        public void RenameImages(string newNameForAllFilesInFolder,FileExtension fileExtension)
+        public void RenameImages(string newNameForAllFilesInFolder)
         {
             if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
             {
@@ -22,13 +22,13 @@ namespace BulkThumbnailCreator
             
             DirectoryInfo directoryInfo = new DirectoryInfo(oldFilePath);
             FileInfo[] files = directoryInfo.GetFiles();
-            
+
             int index = 1;
             try
             {
                 foreach (var item in files)
                 {
-                    item.Rename($"{newNameForAllFilesInFolder}.{index}.{fileExtension}");
+                    item.Rename($"{newNameForAllFilesInFolder}.{index}{item.Extension}");
                     index++;
                 }
             }
@@ -39,7 +39,7 @@ namespace BulkThumbnailCreator
             }
         }
 
-        public void ResizeImages(FileExtension fileExtension)
+        public void ResizeImages()
         {
             int width=0,height=0;
             int index = 1;
@@ -59,7 +59,7 @@ namespace BulkThumbnailCreator
                 {
                     Bitmap bmp = new Bitmap(item);
                     Bitmap image = new Bitmap(bmp, width, height);
-                    image.Save($"{newFilePath}/{index}.{fileExtension}");
+                    image.Save($"{newFilePath}/{index}");
                     index++;
                 }
             }
