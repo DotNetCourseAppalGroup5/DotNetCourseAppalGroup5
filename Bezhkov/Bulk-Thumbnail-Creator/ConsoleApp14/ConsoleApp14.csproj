@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="Choise.cs" />
     <Compile Include="Images.cs" />
-    <Compile Include="ManagerProgramm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
