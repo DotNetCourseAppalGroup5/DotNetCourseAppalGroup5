@@ -9,7 +9,7 @@ CREATE Table Film
 	Duration TINYINT DEFAULT 60,
 	CONSTRAINT PK_FilmID Primary Key (FilmID),
 	CONSTRAINT UQ_NameFilm UNIQUE (NameFilm),
-	CONSTRAINT CK_Duration CHECK (Duration=90 AND Duration=60 AND Duration=120)
+	CONSTRAINT CK_Duration CHECK (Duration=90 OR Duration=60 OR Duration=120)
 )
 
 CREATE TABLE SessionFILM 
