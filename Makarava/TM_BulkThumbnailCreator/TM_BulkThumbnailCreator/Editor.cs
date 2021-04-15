@@ -6,20 +6,19 @@ using System.Configuration;
 
 namespace TM_BulkThumbnailCreator
 {
-    public static class Editor
+    public class Editor
     {
         //set initial folder
         public static string initialFolder = ConfigurationManager.AppSettings.Get("initialFolder");
-
         //set folder for files after changes
         public static string folderAfterChanges = ConfigurationManager.AppSettings.Get("folderAfterChanges");
 
         public static void CreateFolders()
-        {  
+        {
             if (!Directory.Exists(initialFolder))
             {
                 Directory.CreateDirectory(initialFolder);
-            }      
+            }
 
             if (!Directory.Exists(folderAfterChanges))
             {
@@ -29,7 +28,6 @@ namespace TM_BulkThumbnailCreator
 
         //set pictures Width
         public static int width = int.Parse(ConfigurationManager.AppSettings.Get("pictureWidth"));
-
         //set pictures Height
         public static int height = int.Parse(ConfigurationManager.AppSettings.Get("pictureHeight"));
 
@@ -60,7 +58,7 @@ namespace TM_BulkThumbnailCreator
                 // if user cancels the operation it will break and show how much files are done and how much are left
                 if (token.IsCancellationRequested)
                 {
-                    Console.WriteLine(Constant.cancellationMessage);
+                    Constant.ShowCancellationMessage();
 
                     return;
                 }
@@ -75,11 +73,11 @@ namespace TM_BulkThumbnailCreator
 
                 catch
                 {
-                    Constant.Warning(files[i].Name);
+                    Constant.Warning();
                 }
             }
 
-            Console.WriteLine($"{Constant.notificationToReturnToMainMenu}");
+            Constant.ShowCancellationMessage();
         }
 
         public static void RenameImages(CancellationToken token, string userPictureName)
@@ -93,7 +91,7 @@ namespace TM_BulkThumbnailCreator
             {
                 if (token.IsCancellationRequested)
                 {
-                    Console.WriteLine(Constant.cancellationMessage);
+                    Constant.ShowCancellationMessage();
 
                     return;
                 }
@@ -109,10 +107,10 @@ namespace TM_BulkThumbnailCreator
 
                 catch
                 {
-                    Constant.Warning(files[i].Name);
+                    Constant.Warning();
                 }
 
-                Console.WriteLine($"{Constant.notificationToReturnToMainMenu}");
+                Constant.ShowCancellationMessage();
             }
         }
     }

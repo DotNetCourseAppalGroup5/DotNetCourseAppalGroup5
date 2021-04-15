@@ -13,7 +13,7 @@ namespace TM_BulkThumbnailCreator
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
 
-            Constant.WelcomingMessage(Editor.initialFolder, Editor.folderAfterChanges);
+            WelcomingMessage(Editor.initialFolder, Editor.folderAfterChanges);
 
             bool returnToMainMenu = true;
 
@@ -42,7 +42,7 @@ namespace TM_BulkThumbnailCreator
 
                         Task.Factory.StartNew(() => Editor.ResizeImages(token));
 
-                        Constant.CancellationMessage(cancelationToken);
+                        CancellationMessage(cancelationToken);
 
                         Console.Clear();
 
@@ -61,7 +61,7 @@ namespace TM_BulkThumbnailCreator
 
                         Task.Factory.StartNew(() => Editor.RenameImages(token, userPictureName));
 
-                        Constant.CancellationMessage(cancelationToken);
+                        CancellationMessage(cancelationToken);
 
                         Console.Clear();
 
@@ -81,6 +81,33 @@ namespace TM_BulkThumbnailCreator
 
                         break;
                 }
+            }
+        }
+
+        static void WelcomingMessage(string initialFolder, string folderAfterChanges)
+        {
+            //welcoming message
+            Console.WriteLine($"\n\tHi user! Welcome to Bulk Thumbnail Creator." +
+                $"\n\n\tPlease upload images you want to work with into the following folder " +
+                $"\n\n\t{initialFolder} folder. " +
+                $"\n\n\tAfter editing your pictures will be saved into " +
+                $"\n\n\t{folderAfterChanges}" +
+                $"\n\n\t Note: You can change folders in App.config file");
+
+            Console.WriteLine("\n\n\t Please type anything to go to the main menu");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        static void CancellationMessage(CancellationTokenSource cancelationTokenSource)
+        {
+            Console.WriteLine($"\n\tPlease type Q to cancel process");
+
+            string cancelInput = Console.ReadLine().Trim().ToUpper();
+
+            if (cancelInput == "Q")
+            {
+                cancelationTokenSource.Cancel();
             }
         }
     }
