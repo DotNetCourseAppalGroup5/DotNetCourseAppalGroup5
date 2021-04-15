@@ -2,6 +2,7 @@ CREATE DATABASE  CINEMA
 GO
 Use CINEMA
 
+GO
 CREATE Table Film
 (
 	FilmID int IDENTITY(1,1),
@@ -12,13 +13,17 @@ CREATE Table Film
 	CONSTRAINT CK_Duration CHECK (Duration=90 OR Duration=60 OR Duration=120)
 )
 
+Go
 CREATE TABLE SessionFILM 
 (
 	SessionID int IDENTITY(1,1),
 	DateTimeSession SMALLDATETIME NOT NULL,
+	MaxTicketCount int NOT NULL
 	CONSTRAINT PK_SessionID Primary Key (SessionID)
+	CONSTRAINT CK_MaxTicketCount CHECK (MaxTicketCount<200 AND MaxTicketCount>0)
 )
 
+GO
 CREATE Table Ticket
 (
 	TicketID int  IDENTITY(1,1),
@@ -31,6 +36,7 @@ CREATE Table Ticket
 	CONSTRAINT CK_Price CHECK (Price>0 AND PRICE <50)
 )
 
+GO
 CREATE TABLE TicketSOLD
 (
 	TicketSoldID int IDENTITY(1,1),
