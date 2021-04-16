@@ -1,0 +1,64 @@
+
+--Correlated subquery
+Use CINEMA
+SELECT Price,
+(SELECT FilmID FROM SessionFILM
+WHERE Ticket.SessionID = SessionFILM.SessionID) as SessionID
+FROM Ticket
+
+--Implicit table join
+SELECT * FROM Film,SessionFILM
+
+--Cross Join
+SELECT * FROM Film Cross Join SessionFILM
+
+--Union
+SELECT Price
+FROM Ticket
+UNION ALL SELECT SumTicket
+FROM TicketSOLD
+
+--EXCEPT
+SELECT Price
+FROM Ticket
+EXEPT SELECT SumTicket
+FROM TicketSOLD
+
+--INTERSECT
+SELECT Price
+FROM Ticket
+INTERSECT SELECT SumTicket
+FROM TicketSOLD
+
+--TRY CETCH
+BEGIN TRY
+CREATE DATABASE  CINEMA
+PRINT 'CREATE DB CINEMA!!!'
+END TRY
+
+BEGIN CATCH
+PRINT 'ERROR DB CINEMA ALREADY CREATED'
+END CATCH
+
+--CAST, Convert, TRY_CONVERT, STR
+BEGIN TRY
+SELECT CAST (Price as int) as PriceInteger
+FROM Ticket
+END TRY
+
+BEGIN CATCH
+PRINT 'ERROR block TRY'
+END CATCH
+
+BEGIN TRY
+SELECT CONVERT(nvarchar,DateTimeSession,3) as Date
+FROM SessionFILM
+END TRY
+
+BEGIN CATCH
+PRINT 'ERROR block TRY'
+END CATCH
+
+SELECT TRY_CONVERT(nvarchar,'DateTimeSession') 
+
+SELECT STR(99.4587, 7,4)
