@@ -10,10 +10,10 @@ namespace BulkThumbnailCreator
 {
     public class Finder
     {
-        private string oldFilePath = ConfigurationManager.AppSettings.Get("PathStart"); // Full path of old file
-        private string newFilePath = ConfigurationManager.AppSettings.Get("PathEnd"); // Full path of new file
+        private string oldFilePath = ConfigurationManager.AppSettings.Get("PathStart"); 
+        private string newFilePath = ConfigurationManager.AppSettings.Get("PathEnd");
         
-        public void RenameImages(string newNameForAllFilesInFolder)
+        public void RenameImages(string newNameForFiles,CancellationToken token)
         {
             if ((!Directory.Exists(oldFilePath)) || (!Directory.Exists(newFilePath)))
             {
@@ -28,18 +28,22 @@ namespace BulkThumbnailCreator
             {
                 foreach (var item in files)
                 {
-                    item.Rename($"{newNameForAllFilesInFolder}.{index}{item.Extension}");
+                    if (token.IsCancellationRequested)
+                    {
+                        return;
+                    }
+                    
+                    item.Rename($"{newNameForFiles}.{index}{item.Extension}");
                     index++;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(Constansts.ErrorMessages.ErrorMessage + ex.Message);
-                Thread.Sleep(3000);
             }
         }
 
-        public void ResizeImages()
+        public void ResizeImages(CancellationToken token)
         {
             int width=0,height=0;
             int index = 1;
@@ -57,6 +61,11 @@ namespace BulkThumbnailCreator
             {
                 foreach (var item in files)
                 {
+                    if (token.IsCancellationRequested)
+                    {
+                        return;
+                    }
+                    
                     Bitmap bmp = new Bitmap(item);
                     Bitmap image = new Bitmap(bmp, width, height);
                     image.Save($"{newFilePath}/{index}");
@@ -66,7 +75,6 @@ namespace BulkThumbnailCreator
             catch (Exception ex)
             {
                 Console.WriteLine(Constansts.ErrorMessages.ErrorMessage + ex.Message);
-                Thread.Sleep(3000);
             }
         }
     }

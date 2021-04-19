@@ -26,5 +26,10 @@ namespace BulkThumbnailCreator.Properties
             public static string PointExit = "3)Exit from the app";
             public static string PointOperationChoice = "Select an action: ";
         }
+        
+        public static class CancellationRequest
+        {
+            public static string request = "Press 's' to stop the operation.";
+        }
     }
 }

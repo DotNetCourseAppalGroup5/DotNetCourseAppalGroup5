@@ -30,28 +30,28 @@ namespace BulkThumbnailCreator
                 {
                     case MenuAction.resize:
                     {
-                        Task.Factory.StartNew(() => finder.ResizeImages()).Wait();
+                        Task.Factory.StartNew(() => finder.ResizeImages(token));
+                        CancellationMenu(cancelTokenSource);
                         break;
                     }
                     case MenuAction.rename:
                     {
                         Console.Write(Constansts.PictureProcess.PictureName);
                         string newNameForFiles = Console.ReadLine();
-                        
-                        Task.Factory.StartNew(() => finder.RenameImages(newNameForFiles)).Wait();
+
+                        Task.Factory.StartNew(() => finder.RenameImages(newNameForFiles, token));
+                        CancellationMenu(cancelTokenSource);
                         break;
                     }
                     case MenuAction.exit:
                     {
                         processRun = false;
                         Console.WriteLine(Constansts.UserNotifications.NotifyExit);
-                        Thread.Sleep(3000);
                         break;
                     }
                     default:
                     {
                         Console.WriteLine(Constansts.ErrorMessages.InputError);
-                        Thread.Sleep(1500);
                         break;
                     }
                 }
@@ -67,6 +67,17 @@ namespace BulkThumbnailCreator
             Console.WriteLine(Constansts.MainMenu.PointExit);
             Console.Write(Constansts.MainMenu.PointOperationChoice);
             Console.ResetColor();
+        }
+
+        static void CancellationMenu(CancellationTokenSource cancellationTokenSource)
+        {
+            Console.WriteLine(Constansts.CancellationRequest.request);
+            string request = Console.ReadLine().ToLower();
+
+            if (request == "s")
+            {
+                cancellationTokenSource.Cancel();
+            }
         }
     }
 }
