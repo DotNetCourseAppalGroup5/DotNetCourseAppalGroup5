@@ -11,10 +11,9 @@ namespace Bulk_Thumbnail_Creator
 {
     public class PhotoManager
     {
-        public static void RenameImages(FileInfo[] files, string newFilesName, CancellationToken token, out bool isCanceled)
+        public void RenameImages(FileInfo[] files, string newFilesName, CancellationToken token, out bool isCanceled)
         {
             int fileNumber = 1;
-            isCanceled = false;
 
             foreach (var item in files)
             {
@@ -26,17 +25,13 @@ namespace Bulk_Thumbnail_Creator
 
                 item.MoveTo(Path.Combine(item.Directory.FullName, $"{newFilesName}{fileNumber}.jpg"));
                 fileNumber++;
-
-                Thread.Sleep(1000);
             }
         }
 
-        public static void ResizeImages(string filePath, string newFilePath, int width, int heigth, CancellationToken token, out bool isCanceled)
+        public void ResizeImages(string filePath, string newFilePath, int width, int heigth, CancellationToken token, out bool isCanceled)
         {
             int fileIndex = 1;
             string[] files = Directory.GetFiles(filePath);
-
-            isCanceled = false;
 
             foreach (var item in files)
             {
@@ -50,8 +45,6 @@ namespace Bulk_Thumbnail_Creator
                 Bitmap image = new Bitmap(bmp, width, heigth);
                 image.Save($"{newFilePath}/{fileIndex}.jpg");
                 fileIndex++;
-
-                Thread.Sleep(1000);
             }
         }
     }

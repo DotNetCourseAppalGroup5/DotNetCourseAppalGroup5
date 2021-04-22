@@ -10,19 +10,20 @@ namespace Bulk_Thumbnail_Creator
     {
         static void Main()
         {
+            //
             string filesPath = ConfigurationManager.AppSettings["filePath"];
             string newFilesPath = ConfigurationManager.AppSettings["newFilePath"];
 
-            if (!IsDirectoryExists(filesPath)) return;
-            DirectoryInfo directoryInfo = new DirectoryInfo(filesPath);
+            FileChecker fileChecker = new FileChecker();
+            FileInfo[] files = fileChecker.IsAvailableWorkingWithFiles(filesPath, newFilesPath);
 
-            IsDirectoryExists(newFilesPath);
-
-            FileInfo[] files = directoryInfo.GetFiles();
-            if (!IsFileExists(files)) return;  
-
+            if (files == null) return;
+            
             CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
             CancellationToken token = cancelTokenSource.Token;
+
+            PhotoManager manager = new PhotoManager();
+            UserManipulation userManipulation = new UserManipulation();
 
             do
             {
@@ -34,35 +35,41 @@ namespace Bulk_Thumbnail_Creator
 
                 Task task;
                 bool isCanceled = false;
+                bool hasResult = false;
 
                 switch (choice)
                 {
                     case MenuPoints.Resize:
                         {
+                            hasResult = true;
+
                             int width = GetWidth();
                             int heigth = GetHeigth();
 
                             task = new Task(() =>
-                            { 
-                                PhotoManager.ResizeImages(filesPath, newFilesPath, width, heigth, token, out isCanceled);
+                            {
+                                manager.ResizeImages(filesPath, newFilesPath, width, heigth, token, out isCanceled);
                             });
 
                             task.Start();
                             CancelOperation(cancelTokenSource);
+                            task.Wait();
 
                             break;
                         }
                     case MenuPoints.Rename:
                         {
+                            hasResult = true;
                             string newFilesName = GetNewFilesName();
 
                             task = new Task(() =>
                             {
-                                PhotoManager.RenameImages(files, newFilesName, token, out isCanceled);
+                                manager.RenameImages(files, newFilesName, token, out isCanceled);
                             });
 
                             task.Start();
                             CancelOperation(cancelTokenSource);
+                            task.Wait();
 
                             break;
                         }
@@ -73,46 +80,17 @@ namespace Bulk_Thumbnail_Creator
                         }
                 }
 
-                if (!isCanceled) Console.WriteLine(Constants.successfullOperation);
-                else Console.WriteLine(Constants.canceledOperation);
-                
-                Console.WriteLine(Constants.anyKeyToContinue);
-                Console.ReadKey();
-                Console.Clear();
+                if(hasResult)
+                {
+                    if (isCanceled) Console.WriteLine(Constants.canceledOperation);
+                    else Console.WriteLine(Constants.successfullOperation);
+                }
+
+                userManipulation.ContinueProgram();
 
             } while (true);
 
-            Console.WriteLine(Constants.programEnd);
-            Console.ReadKey();
-        }
-
-        static bool IsDirectoryExists(string filesPath)
-        {
-            if (!Directory.Exists(filesPath))
-            {
-                Console.WriteLine("Specified directory doesn't exists!");
-                Console.WriteLine("Creating new directory...");
-                Console.WriteLine(filesPath);
-                Directory.CreateDirectory(filesPath);
-                Console.ReadKey();
-                return false;
-            }
-            else return true;
-        }
-
-        static bool IsFileExists(FileInfo[] files)
-        {
-            if (files.Length != 0)
-            {
-                return true;
-            }
-            else
-            {
-                Console.WriteLine($"Directory is empty!");
-                Console.WriteLine("Please add some files");
-                Console.ReadKey();
-                return false;
-            }
+            userManipulation.FinishProgram();        
         }
 
         static void ShowMenu()

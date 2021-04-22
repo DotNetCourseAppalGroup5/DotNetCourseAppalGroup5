@@ -67,7 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="FileChecker.cs" />
     <Compile Include="MenuPoints.cs" />
+    <Compile Include="OperationContinue.cs" />
     <Compile Include="PhotoManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
