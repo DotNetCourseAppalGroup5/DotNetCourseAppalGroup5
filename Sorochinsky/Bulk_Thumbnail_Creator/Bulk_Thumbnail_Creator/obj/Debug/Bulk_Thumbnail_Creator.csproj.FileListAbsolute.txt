@@ -1,0 +1,17 @@
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\Bulk_Thumbnail_Creator.exe.config
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\Bulk_Thumbnail_Creator.exe
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\Bulk_Thumbnail_Creator.pdb
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Drawing.Common.dll
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Security.AccessControl.dll
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Security.Permissions.dll
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Security.Principal.Windows.dll
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Configuration.ConfigurationManager.xml
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Security.AccessControl.xml
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Security.Permissions.xml
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\bin\Debug\System.Security.Principal.Windows.xml
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\obj\Debug\Bulk_Thumbnail_Creator.csprojAssemblyReference.cache
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\obj\Debug\Bulk_Thumbnail_Creator.csproj.CoreCompileInputs.cache
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\obj\Debug\Bulk_Thumbnail_Creator.csproj.CopyComplete
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\obj\Debug\Bulk_Thumbnail_Creator.exe
+E:\Курсы\Bulk_Thumbnail_Creator\Bulk_Thumbnail_Creator\obj\Debug\Bulk_Thumbnail_Creator.pdb
