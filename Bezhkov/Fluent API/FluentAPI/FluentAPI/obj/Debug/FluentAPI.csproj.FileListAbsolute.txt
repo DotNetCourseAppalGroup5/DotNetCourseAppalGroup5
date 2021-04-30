@@ -1,0 +1,12 @@
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\bin\Debug\FluentAPI.exe.config
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\bin\Debug\FluentAPI.exe
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\bin\Debug\FluentAPI.pdb
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\bin\Debug\EntityFramework.dll
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\bin\Debug\EntityFramework.xml
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\bin\Debug\EntityFramework.SqlServer.xml
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\obj\Debug\FluentAPI.csprojAssemblyReference.cache
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\obj\Debug\FluentAPI.csproj.CoreCompileInputs.cache
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\obj\Debug\FluentAPI.csproj.CopyComplete
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\obj\Debug\FluentAPI.exe
+D:\C#\EntityFraemwork\Fluent API\FluentAPI\FluentAPI\obj\Debug\FluentAPI.pdb
