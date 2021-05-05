@@ -1,0 +1,35 @@
+div {
+    font-size: 20px;
+}
+
+#header {
+    width: 100%;
+    background-color: #ddd;
+}
+
+#main {
+    background-color: #fafafa;
+    height: 12px;
+    display: flex;
+}
+
+#sidebar {
+    background-color: #ffffff;
+    /* width: 150px; */
+}
+
+#menu {
+    background-color: #ddd;
+    /* height: calc(var(--bs-gutter-x)) */
+}
+
+#content {
+    background-color: #ffffff;
+    /* margin-left: 410px; */
+}
+
+#footer {
+    background-color: #ddd;
+    width: 1887px;
+    height: 100px;
+}
