@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="Style/M.css">
+    <link rel="stylesheet" href="Style/MyStyle.css">
     <title>My Clasmates</title>
 
 </head>
@@ -23,7 +23,7 @@
             </a>Classmates
         </div>
         <div style="display: flex;">
-            <input type="text" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;"
+            <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;"
                 class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск"
                 aria-label="Поиск">
         </div>
@@ -40,7 +40,7 @@
                         }
 
                         a:visited {
-                            color:rgb(8, 8, 8);
+                            color: rgb(8, 8, 8);
                             text-decoration: none
                         }
 
@@ -50,7 +50,8 @@
                         }
 
                         a:active {
-                            color: rgb(8, 8, 8);;
+                            color: rgb(8, 8, 8);
+                            ;
                             text-decoration: none
                         }
                     </style>
@@ -59,7 +60,7 @@
                         <li><a href="Friends.html">Друзья</a></li>
                         <li><a href="Photo.html">Фотографии</a></li>
                         <li><a href="Message.html">Сообщения</a></li>
-                        <li><a href="Music.html" target="_blank">Моя музыка</li>
+                        <li><a href="Music.html">Моя музыка</li>
                         <li><a href="Video.html">Мои видео</a></li>
                     </ul>
 
@@ -74,121 +75,295 @@
 
                             <div>
                                 <img src=https://picsum.photos/200/300 alt="avatar" />
-                                <p class="text-center">End aligned text on all viewport sizes.</p>
+
+                                <div class="row" style="padding: 10px;">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                        Change avatar
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Avatar</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="#">
+                                                        <input type="file" name=avater; value="avatar"
+                                                            accept="image/jpeg,image/png,image/gif">
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Сhange</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div>
-                                <div id="content" style="margin-left: 10px;">
+                            <div class="row" style="padding: 10px; padding-top: 0px;">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdropedit">
+                                    Edit
+                                </button>
 
-                                    <h4><mark> MyHomework</mark> </h4>
-                                    <p><b>Lorem psum dolor</b> sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                        aliqua.
-                                        Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur.
-                                        Elit
-                                        at imperdiet dui accumsan. Lobortis mattis aliquam faucibus purus in massa
-                                        tempor.
-                                        Augue ut lectus arcu bibendum at varius vel pharetra vel. In egestas erat
-                                        imperdiet
-                                        sed euismod nisi. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
-                                        iaculis. Id consectetur purus ut faucibus pulvinar elementum. Turpis nunc eget
-                                        lorem
-                                        dolor sed viverra ipsum. Eget nunc lobortis mattis aliquam faucibus purus in.
-                                    </p>
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdropedit" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Edit Profile</h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" style="padding: 10px;">
+                                                <form method="POST" autocomplete="off" action="#">
 
-                                    <p><b>Turpis tincidunt</b> id aliquet risus feugiat in ante. Arcu odio ut sem nulla
-                                        pharetra diam sit amet. Diam vulputate ut pharetra sit amet. Tempus quam
-                                        pellentesque nec nam aliquam sem et tortor consequat. Eget gravida cum sociis
-                                        natoque. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus.
-                                        A diam maecenas sed enim ut sem viverra aliquet eget. Nisl tincidunt eget nullam
-                                        non nisi est sit amet. Rhoncus mattis rhoncus urna neque viverra justo nec
-                                        ultrices. In eu mi bibendum neque egestas. Id porta nibh venenatis cras sed
-                                        felis eget velit aliquet. At tempor commodo ullamcorper a lacus vestibulum.
-                                        Fringilla phasellus faucibus scelerisque eleifend. Sagittis eu volutpat odio
-                                        facilisis mauris.</p>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-4">
+                                                                <label for="FN">Last Name </label>
+                                                            </div>
+                                                            <div class="col-md-4 ">
+                                                                <input type="LastName" value="Alexey" name="LN"
+                                                                    required>
+                                                            </div>
+                                                        </div>
 
-                                    <p><b>Turpis egestas integer</b> eget aliquet nibh praesent. Sed felis eget velit
-                                        aliquet sagittis id consectetur purus ut. Sit amet purus gravida quis. Faucibus
-                                        in ornare quam viverra orci sagittis eu volutpat. Consequat id porta nibh
-                                        venenatis cras sed. Quis commodo odio aenean sed adipiscing diam donec. Sed
-                                        viverra tellus in hac habitasse platea. Quam viverra orci sagittis eu volutpat
-                                        odio facilisis mauris. Sed risus ultricies tristique nulla aliquet. Tempor orci
-                                        dapibus ultrices in iaculis. Facilisis magna etiam tempor orci eu. Enim sit amet
-                                        venenatis urna cursus eget nunc. Elit sed vulputate mi sit. Dui ut ornare lectus
-                                        sit amet est placerat in egestas. Faucibus pulvinar elementum integer enim neque
-                                        volutpat. Elementum curabitur vitae nunc sed velit dignissim sodales ut. Laoreet
-                                        sit amet cursus sit amet dictum sit amet justo. Nulla pharetra diam sit amet
-                                        nisl suscipit adipiscing. Suscipit tellus mauris a diam maecenas sed enim ut.
-                                    </p>
 
-                                    <p><b>Magna</b> ac placerat vestibulum lectus mauris ultrices eros. Nibh nisl
-                                        condimentum id venenatis a condimentum. Eu scelerisque felis imperdiet proin
-                                        fermentum leo vel orci. Felis eget nunc lobortis mattis aliquam faucibus. Donec
-                                        ac odio tempor orci dapibus ultrices in. Adipiscing elit pellentesque habitant
-                                        morbi tristique senectus et netus et. Metus dictum at tempor commodo ullamcorper
-                                        a lacus vestibulum sed. Nunc lobortis mattis aliquam faucibus purus in massa
-                                        tempor. Lacus laoreet non curabitur gravida arcu. Leo vel fringilla est
-                                        ullamcorper eget nulla. In nibh mauris cursus mattis molestie a. Dis parturient
-                                        montes nascetur ridiculus mus mauris vitae. Tellus elementum sagittis vitae et
-                                        leo duis. Viverra justo nec ultrices dui sapien. In nisl nisi scelerisque eu
-                                        ultrices vitae auctor eu augue. Cras pulvinar mattis nunc sed blandit libero
-                                        volutpat sed cras.</p>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-4">
+                                                                <label for="FN">First Name </label>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="FirstName" value="Alex" name="FN" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-4">
+                                                                <label for="SN">Second Name</label>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input type="SecondName" value="FatherName" name="SN">
+                                                            </div>
+                                                        </div>
 
-                                    <p><b>In tellus integer feugiat</b> scelerisque varius morbi enim. Amet aliquam id
-                                        diam maecenas. Ornare arcu dui vivamus arcu felis bibendum. Ac tortor dignissim
-                                        convallis aenean et tortor at. Risus feugiat in ante metus dictum at. Cursus
-                                        metus aliquam eleifend mi in nulla. Venenatis lectus magna fringilla urna
-                                        porttitor. Nulla porttitor massa id neque aliquam vestibulum. Sed nisi lacus sed
-                                        viverra tellus in. Pellentesque adipiscing commodo elit at imperdiet.
-                                        Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Penatibus et
-                                        magnis dis parturient montes nascetur ridiculus mus mauris. In dictum non
-                                        consectetur a erat nam at. Nisi quis eleifend quam adipiscing vitae.
-                                        Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum.</p>
+                                                    <div class="row mb-2">
+                                                        <div class="col-md-4">
+                                                            <label for="Sex">Gender</label>
+                                                        </div>
 
-                                    <p><b>Et ultrices neque</b> ornare aenean euismod. Pellentesque eu tincidunt tortor
-                                        aliquam. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod.
-                                        Pellentesque habitant morbi tristique senectus. Eu sem integer vitae justo eget
-                                        magna fermentum iaculis. Sed augue lacus viverra vitae congue eu. Lectus magna
-                                        fringilla urna porttitor rhoncus dolor. Faucibus in ornare quam viverra orci
-                                        sagittis eu. Aenean sed adipiscing diam donec adipiscing tristique risus. Nam
-                                        aliquam sem et tortor consequat id porta nibh venenatis. Arcu bibendum at varius
-                                        vel. Consectetur libero id faucibus nisl tincidunt eget nullam non. Malesuada
-                                        bibendum arcu vitae elementum curabitur vitae nunc sed velit. Nisl purus in
-                                        mollis nunc sed id semper.</p>
+                                                        <div class="col-md-4">
+                                                            <select name="Sex" class="form-select "
+                                                                aria-label="Default select example"
+                                                                style="width:183px;">
+                                                                <option value="Male">Male</option>>
+                                                                <option value="Female">Female</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mb-2">
+                                                        <div class="col-md-4">
+                                                            <label for="date">Birthday</label>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <input type="date" name="date" style="width:183px" />
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-md-4">
+                                                            <label for="date">City</label>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <input type="text" name="city" />
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row mb-2">
+                                                        <div class="col-md-4">
+                                                            <label for="email">Email</label>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <input type="email" name="email"
+                                                                pattern="[a-zA-Z0-9.-_]+@[a-zA-Z]+.[a-zA-Z]+"
+                                                                required />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-md-4">
+                                                            <label for="pass">Password</label>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <input type="password" name="pass"
+                                                                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                                                                required />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Change</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <div id="content" style="margin-left: 10px;">
 
+                                <h4><mark> MyHomework</mark> </h4>
+                                <p><b>Lorem psum dolor</b> sit amet, consectetur
+                                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua.
+                                    Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur.
+                                    Elit
+                                    at imperdiet dui accumsan. Lobortis mattis aliquam faucibus purus in massa
+                                    tempor.
+                                    Augue ut lectus arcu bibendum at varius vel pharetra vel. In egestas erat
+                                    imperdiet
+                                    sed euismod nisi. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus
+                                    iaculis. Id consectetur purus ut faucibus pulvinar elementum. Turpis nunc eget
+                                    lorem
+                                    dolor sed viverra ipsum. Eget nunc lobortis mattis aliquam faucibus purus in.
+                                </p>
 
-                    </div>
+                                <p><b>Turpis tincidunt</b> id aliquet risus feugiat in ante. Arcu odio ut sem nulla
+                                    pharetra diam sit amet. Diam vulputate ut pharetra sit amet. Tempus quam
+                                    pellentesque nec nam aliquam sem et tortor consequat. Eget gravida cum sociis
+                                    natoque. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus.
+                                    A diam maecenas sed enim ut sem viverra aliquet eget. Nisl tincidunt eget nullam
+                                    non nisi est sit amet. Rhoncus mattis rhoncus urna neque viverra justo nec
+                                    ultrices. In eu mi bibendum neque egestas. Id porta nibh venenatis cras sed
+                                    felis eget velit aliquet. At tempor commodo ullamcorper a lacus vestibulum.
+                                    Fringilla phasellus faucibus scelerisque eleifend. Sagittis eu volutpat odio
+                                    facilisis mauris.</p>
 
-                    <div class="col-1"
-                        style="color: rgba(19, 226, 88, 0.842); font-size: 16px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-style: italic;">
+                                <p><b>Turpis egestas integer</b> eget aliquet nibh praesent. Sed felis eget velit
+                                    aliquet sagittis id consectetur purus ut. Sit amet purus gravida quis. Faucibus
+                                    in ornare quam viverra orci sagittis eu volutpat. Consequat id porta nibh
+                                    venenatis cras sed. Quis commodo odio aenean sed adipiscing diam donec. Sed
+                                    viverra tellus in hac habitasse platea. Quam viverra orci sagittis eu volutpat
+                                    odio facilisis mauris. Sed risus ultricies tristique nulla aliquet. Tempor orci
+                                    dapibus ultrices in iaculis. Facilisis magna etiam tempor orci eu. Enim sit amet
+                                    venenatis urna cursus eget nunc. Elit sed vulputate mi sit. Dui ut ornare lectus
+                                    sit amet est placerat in egestas. Faucibus pulvinar elementum integer enim neque
+                                    volutpat. Elementum curabitur vitae nunc sed velit dignissim sodales ut. Laoreet
+                                    sit amet cursus sit amet dictum sit amet justo. Nulla pharetra diam sit amet
+                                    nisl suscipit adipiscing. Suscipit tellus mauris a diam maecenas sed enim ut.
+                                </p>
 
-                        <p> <img src="Images/start.jpg" alt="reklama" style="width: 100%" /> </p>
-                        Блок для рекламы
-                    </div>
-                    <div class="col-3">
-                        <div id="sidebar">
-                            <iframe src="http://wikipedia.com" height="1700" width="100%"></iframe>
-                            <div>
-                                <nav aria-label="page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="index.html">previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="friends.html">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="music.html">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="video.html">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="friends.html">next</a></li>
-                                    </ul>
-                                </nav>
+                                <p><b>Magna</b> ac placerat vestibulum lectus mauris ultrices eros. Nibh nisl
+                                    condimentum id venenatis a condimentum. Eu scelerisque felis imperdiet proin
+                                    fermentum leo vel orci. Felis eget nunc lobortis mattis aliquam faucibus. Donec
+                                    ac odio tempor orci dapibus ultrices in. Adipiscing elit pellentesque habitant
+                                    morbi tristique senectus et netus et. Metus dictum at tempor commodo ullamcorper
+                                    a lacus vestibulum sed. Nunc lobortis mattis aliquam faucibus purus in massa
+                                    tempor. Lacus laoreet non curabitur gravida arcu. Leo vel fringilla est
+                                    ullamcorper eget nulla. In nibh mauris cursus mattis molestie a. Dis parturient
+                                    montes nascetur ridiculus mus mauris vitae. Tellus elementum sagittis vitae et
+                                    leo duis. Viverra justo nec ultrices dui sapien. In nisl nisi scelerisque eu
+                                    ultrices vitae auctor eu augue. Cras pulvinar mattis nunc sed blandit libero
+                                    volutpat sed cras.</p>
+
+                                <p><b>In tellus integer feugiat</b> scelerisque varius morbi enim. Amet aliquam id
+                                    diam maecenas. Ornare arcu dui vivamus arcu felis bibendum. Ac tortor dignissim
+                                    convallis aenean et tortor at. Risus feugiat in ante metus dictum at. Cursus
+                                    metus aliquam eleifend mi in nulla. Venenatis lectus magna fringilla urna
+                                    porttitor. Nulla porttitor massa id neque aliquam vestibulum. Sed nisi lacus sed
+                                    viverra tellus in. Pellentesque adipiscing commodo elit at imperdiet.
+                                    Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Penatibus et
+                                    magnis dis parturient montes nascetur ridiculus mus mauris. In dictum non
+                                    consectetur a erat nam at. Nisi quis eleifend quam adipiscing vitae.
+                                    Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum.</p>
+
+                                <p><b>Et ultrices neque</b> ornare aenean euismod. Pellentesque eu tincidunt tortor
+                                    aliquam. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod.
+                                    Pellentesque habitant morbi tristique senectus. Eu sem integer vitae justo eget
+                                    magna fermentum iaculis. Sed augue lacus viverra vitae congue eu. Lectus magna
+                                    fringilla urna porttitor rhoncus dolor. Faucibus in ornare quam viverra orci
+                                    sagittis eu. Aenean sed adipiscing diam donec adipiscing tristique risus. Nam
+                                    aliquam sem et tortor consequat id porta nibh venenatis. Arcu bibendum at varius
+                                    vel. Consectetur libero id faucibus nisl tincidunt eget nullam non. Malesuada
+                                    bibendum arcu vitae elementum curabitur vitae nunc sed velit. Nisl purus in
+                                    mollis nunc sed id semper.</p>
                             </div>
+                            <div>
+                                <form method="POST" action="#">
+                                    <div class="row">
+                                        <div class="col-10" style="margin-left: 10px;">
+
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="floatingTextarea2" style="height: 100px"></textarea>
+                                        </div>
+
+
+                                        <div class="col-1">
+                                            <input type="image" id="Comment"
+                                                src="Images/depositphotos_39659561-stock-photo-save-icon.jpg"
+                                                name="submit" />
+                                            </input>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-1" <p> <img src="Images/start.jpg" alt="reklama" style="width:100%" /> </p>
+                    Блок для рекламы
+                </div>
+
+                <div class="col-3">
+                    <div id="sidebar">
+                        <iframe src="http://wikipedia.com" height="1700" width="100%"></iframe>
+                        <div>
+                            <nav aria-label="page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="index.html">previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="friends.html">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="music.html">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="video.html">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="friends.html">next</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
-            </main>
         </div>
+        </main>
+    </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
 
 </body>
 

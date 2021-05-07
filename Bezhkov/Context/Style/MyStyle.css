@@ -1,35 +1,42 @@
-div {
-    font-size: 20px;
+
+.pad
+{
+    padding: 10px;
+}   
+a:link {
+    color: rgb(8, 8, 8);
+    text-decoration: none
 }
 
-#header {
-    width: 100%;
-    background-color: #ddd;
+a:visited {
+    color: rgb(8, 8, 8);
+    text-decoration: none
 }
 
-#main {
-    background-color: #fafafa;
-    height: 12px;
-    display: flex;
+a:hover {
+    color: rgb(57, 240, 33);
+    text-decoration: none
 }
 
-#sidebar {
-    background-color: #ffffff;
-    /* width: 150px; */
+a:active {
+    color: rgb(8, 8, 8);
+    ;
+    text-decoration: none
 }
-
-#menu {
-    background-color: #ddd;
-    /* height: calc(var(--bs-gutter-x)) */
+.padl
+{
+    padding-left: 10px;
 }
-
-#content {
-    background-color: #ffffff;
-    /* margin-left: 410px; */
+.padlt
+{
+    padding: 10px; padding-top: 0px;
 }
-
-#footer {
-    background-color: #ddd;
-    width: 1887px;
-    height: 100px;
+.padb
+{
+    padding-bottom: 10px;
+}
+.selpad
+{
+    padding: 0;
+    margin-top: -7px;
 }

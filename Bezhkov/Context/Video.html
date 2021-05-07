@@ -1,16 +1,146 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-        <title>Video</title>
-    </head>
-    <body>
-        <video src="Videos/Aerial - 18390.mp4" width="400" height="300" controls ></video>
-        <video src="Videos/Star - 6962.mp4" width="400" height="300" controls ></video>
-        <video src="Videos/Landscape - 757.mp4" width="400" height="300" controls ></video>
-        <video src="Videos/Mountains - 7418.mp4" width="400" height="300" controls ></video>
-    </body>
-</br><a href="Index.html"><button type="button" class="btn btn-secondary">Home Page</a></button>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <base href="D:\Homework\Context\">
+    <title>Video</title>
+</head>
+
+<body>
+    <header id="header" style="background-color: black; margin-bottom: 10px;"
+        class="d-flex justify-content-between text-white">
+        <div style="display: flex;">
+            <a href="Index.html">
+                <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
+            </a>Classmates
+        </div>
+        <div style="display: flex;">
+            <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;"
+                class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск"
+                aria-label="Поиск">
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="d-flex flex-row">
+            <div style="min-width: 10%;">
+
+                <div id="menu" class="h-100 d-inline-block w-100">
+                    <style>
+                        a:link {
+                            color: rgb(8, 8, 8);
+                            text-decoration: none
+                        }
+
+                        a:visited {
+                            color: rgb(8, 8, 8);
+                            text-decoration: none
+                        }
+
+                        a:hover {
+                            color: rgb(57, 240, 33);
+                            text-decoration: none
+                        }
+
+                        a:active {
+                            color: rgb(8, 8, 8);
+                            ;
+                            text-decoration: none
+                        }
+                    </style>
+                    <ul style="list-style-image:url(Images/logotype.jpg);margin-right: 10px;">
+                        <li><a href="Index.html">Моя страница</a></li>
+                        <li><a href="Friends.html">Друзья</a></li>
+                        <li><a href="Photo.html">Фотографии</a></li>
+                        <li><a href="Message.html">Сообщения</a></li>
+                        <li><a href="Music.html">Моя музыка</li>
+                        <li><a href="Video.html">Мои видео</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <main role="main" style="padding-left: 10px;">
+
+                <div class="row">
+                    <div class="col-4">
+                        <figure class="figure">
+                        <video src="Videos/Aerial - 18390.mp4" width="400" height="300" controls></video>
+                        <figcaption class="figure-video">video №1
+                        </figcaption>
+                    </figure>
+                    </div>
+               
+
+                
+                    <div class="col-4">
+                        <figure class="figure">
+                        <video src="Videos/Landscape - 757.mp4" width="400" height="300" controls></video>
+                        <figcaption class="figure-video">video №2
+                        </figcaption>
+                    </figure>
+                    </div>
+                
+               
+                    <div class="col-4">
+                        <figure class="figure">
+                        <video src="Videos/Mountains - 7418.mp4" width="400" height="300" controls></video>
+                        <figcaption class="figure-video">video №3
+                        </figcaption>
+                    </figure>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <figure class="figure">
+                        <video src="Videos/Star - 6962.mp4 " width="400" height="300" controls></video>
+                        <figcaption class="figure-video">video №4
+                        </figcaption>
+                    </figure>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-md-6">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdropvideo">
+                        Add Video
+                    </button>
+</div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdropvideo" data-bs-backdrop="static"
+                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropvideoLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropvideoLabel">Add Video</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="POST" action="#">
+                                        <input type="file" name=video; value="video" accept="video/avi,video/mp4" multiple >
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit"
+                                                class="btn btn-primary">Сhange</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
+    
+</body>
+
+
 </html>
