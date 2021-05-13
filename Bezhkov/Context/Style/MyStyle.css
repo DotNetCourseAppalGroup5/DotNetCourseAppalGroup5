@@ -1,8 +1,7 @@
-
-.pad
-{
+.pad {
     padding: 10px;
-}   
+}
+
 a:link {
     color: rgb(8, 8, 8);
     text-decoration: none
@@ -23,20 +22,49 @@ a:active {
     ;
     text-decoration: none
 }
-.padl
-{
+
+.padl {
     padding-left: 10px;
 }
-.padlt
-{
-    padding: 10px; padding-top: 0px;
+
+.padlt {
+    padding: 10px;
+    padding-top: 0px;
 }
-.padb
-{
+
+.padb {
     padding-bottom: 10px;
 }
-.selpad
-{
+
+.selpad {
     padding: 0;
     margin-top: -7px;
+}
+
+.mar {
+    margin-left: 10px;
+}
+
+.minmenu {
+    min-width: 12%
+}
+
+p.fount {
+    font-family: MyFount, Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+
+.butunsize {
+    width: 68%;
+}
+
+.paddelete {
+    padding-left: 40px;
+    padding-top: 15px;
+}
+
+figure.mystyle {
+    background-color: #FFFFFF;
+    position: relative;
+    box-shadow: 6px 4px 5px 0px rgba(146, 29, 242, 0.60);
 }

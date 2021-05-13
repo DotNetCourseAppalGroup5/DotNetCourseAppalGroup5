@@ -4,120 +4,98 @@
 <head>
     <meta charset="utf-8">
     <title>Photo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style/MyStyle.css">
 </head>
 
 <body>
-    <header id="header" style="background-color: black; margin-bottom: 10px;"
-        class="d-flex justify-content-between text-white">
+    <header id="header" style="background-color: black; margin-bottom: 10px;" class="d-flex justify-content-between text-white">
         <div style="display: flex;">
             <a href="Index.html">
                 <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
             </a>Classmates
         </div>
         <div style="display: flex;">
-            <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;"
-                class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск"
-                aria-label="Поиск">
+            <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">
         </div>
     </header>
-    <div class="container-fluid">
-        <div class="d-flex flex-row">
-            <div style="min-width: 10%;">
 
-                <div id="menu" class="h-100 d-inline-block w-100">
-                    <ul style="list-style-image:url(Images/logotype.jpg);margin-right: 10px;">
-                        <li><a href="Index.html">Моя страница</a></li>
-                        <li><a href="Friends.html">Друзья</a></li>
-                        <li><a href="Photo.html">Фотографии</a></li>
-                        <li><a href="Message.html">Сообщения</a></li>
-                        <li><a href="Music.html">Моя музыка</li>
-                        <li><a href="Video.html">Мои видео</a></li>
-                    </ul>
+    <div id="menu" class="h-100 d-inline-block w-100 container-fluid d-flex flex-row minmenu">
+        <div class="col-1">
+            <ul style="list-style-image:url(Images/logotype.jpg);margin-right: 10px;">
+                <li><a href="Index.html">Моя страница</a></li>
+                <li><a href="Friends.html">Друзья</a></li>
+                <li><a href="Photo.html">Фотографии</a></li>
+                <li><a href="Message.html">Сообщения</a></li>
+                <li><a href="Music.html">Моя музыка</a></li>
+                <li><a href="Video.html">Мои видео</a></li>
+            </ul>
+        </div>
 
+        <main role="main" class="col-11">
+            <div class="row">
+                <div class="col-6">
+                    <figure class="figure mystyle">
+                        <img src="Photo/1770115.jpg" class="img-fluid" alt="Photo №1">
+                        <figcaption class="figure-caption">Photo №1
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-6">
+                    <figure class="figure mystyle">
+                        <img src="Photo/9c81cc1e95d9b54be97d41c92ac99e14.jpg" class="img-fluid" alt="Photo №2">
+                        <figcaption class="figure-caption">Photo №2
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
-            <main role="main" style="padding-left: 10px;">
-                <div class="container">
-                    <div class="w-100">
-                        <div class="row">
-                            <div class="col-6">
-                                <figure class="figure">
-                                    <img src="Photo/1770115.jpg" class="img-fluid" alt="Photo №1">
-                                    <figcaption class="figure-caption">Photo №1
-                                    </figcaption>
-                                </figure>
+            <div class="row">
+                <div class="col-6">
+                    <figure class="figure mystyle">
+                        <img src="Photo/aspnet-mvc-1.webp" class="img-fluid" alt="Photo №3">
+                        <figcaption class="figure-caption">Photo №3
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-6">
+                    <figure class="figure mystyle">
+                        <img src="Photo/index.jpg" class="img-fluid" alt="Photo №4">
+                        <figcaption class="figure-caption">Photo №4
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropphoto">
+                         Add Image
+                        </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdropphoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropphotoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropphotoLabel">Add Image</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="col-6">
-                                <figure class="figure">
-                                    <img src="Photo/9c81cc1e95d9b54be97d41c92ac99e14.jpg" class="img-fluid"
-                                        alt="Photo №2">
-                                    <figcaption class="figure-caption">Photo №2
-                                    </figcaption>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <figure class="figure">
-                                    <img src="Photo/aspnet-mvc-1.webp" class="img-fluid" alt="Photo №3">
-                                    <figcaption class="figure-caption">Photo №3
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="col-6">
-                                <figure class="figure">
-                                    <img src="Photo/index.jpg" class="img-fluid" alt="Photo №4">
-                                    <figcaption class="figure-caption">Photo №4
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
+                            <div class="modal-body">
+                                <form method="GET" action="#">
+                                    <input type="file" name=photo; value="photo" accept="image/jpeg,image/png,image/gif" multiple>
 
-                        <div class="row" style="padding: 10px;">
-                            <div class="col-md-6">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdropphoto">
-                                    Add Image
-                                </button>
-                            </div>
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdropphoto" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropphotoLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropphotoLabel">Add Image</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form method="GET" action="#">
-                                                <input type="file" name=photo; value="photo"
-                                                    accept="image/jpeg,image/png,image/gif" multiple>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Сhange</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Сhange</button>
+                                </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </main>
+        </main>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
         </script>
 </body>
 
