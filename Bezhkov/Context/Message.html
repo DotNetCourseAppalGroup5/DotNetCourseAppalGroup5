@@ -19,57 +19,45 @@
             <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">
         </div>
     </header>
-    <div class="container-fluid">
-        <div class="d-flex flex-row">
-            <div class="minmenu">
-
-                <div id="menu" class="h-100 d-inline-block w-100">
-                    <ul style="list-style-image:url(Images/logotype.jpg);margin-right: 10px;">
-                        <li><a href="Index.html">Моя страница</a></li>
-                        <li><a href="Friends.html">Друзья</a></li>
-                        <li><a href="Photo.html">Фотографии</a></li>
-                        <li><a href="Message.html">Сообщения</a></li>
-                        <li><a href="Music.html">Моя музыка</a></li>
-                        <li><a href="Video.html">Мои видео</a></li>
-                    </ul>
-
-                </div>
-            </div>
-            <main role="main" style="padding-left: 10px;">
-                <div class="row">
-                    <div class="col-12">
-                        <form action="#" method="post" name="commentform" id="commentform">
-                            <p><input type="text" name="author" id="author" value="" size="25" />
-                                <small> Имя</small>
-                            </p>
-                            <p><input type="text" name="email" id="email" value="" size="25" />
-                                <small> Mail</small>
-                            </p>
-                            <p><textarea name="comment" id="comment" cols="48" rows="8"> </textarea>
-                            </p>
-                            <p><input name="submit" type="submit" id="submit" value="Отправить" />
-                            </p>
-                        </form>
-                        <div>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="Index.html">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="Index.html">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="Music.html">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="Video.html">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="Friends.html">Next</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                </br><a href="Index.html"><button type="button" class="btn btn-secondary">Home Page</a></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
+    <div id="menu" class="h-100 d-inline-block w-100 container-fluid d-flex flex-row">
+        <div class="col-1 minmenu">
+            <ul style="list-style-image:url(Images/logotype.jpg);margin-right: 10px;">
+                <li><a href="Index.html">Моя страница</a></li>
+                <li><a href="Friends.html">Друзья</a></li>
+                <li><a href="Photo.html">Фотографии</a></li>
+                <li><a href="Message.html">Сообщения</a></li>
+                <li><a href="Music.html">Моя музыка</a></li>
+                <li><a href="Video.html">Мои видео</a></li>
+            </ul>
         </div>
+        <main class="col-11">
+
+            <form action="#" method="post" name="commentform" id="commentform">
+                <p style="text-indent: 0px;"><input type="text" name="author" id="author" value="" size="25" />
+                    <small> Имя</small>
+                </p>
+                <p style="text-indent: 0px;"><input type="text" name="email" id="email" value="" size="25" />
+                    <small> Mail</small>
+                </p>
+                <p style="text-indent: 0px;"><textarea name="comment" id="comment" cols="48" rows="8"> </textarea>
+                </p>
+                <p style="text-indent: 0px;"><input name="submit" type="submit" id="submit" value="Отправить" />
+                </p>
+            </form>
+            <div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="Index.html">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="Index.html">1</a></li>
+                        <li class="page-item"><a class="page-link" href="Music.html">2</a></li>
+                        <li class="page-item"><a class="page-link" href="Video.html">3</a></li>
+                        <li class="page-item"><a class="page-link" href="Friends.html">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            </br><a href="Index.html"><button type="button" class="btn btn-secondary">Home Page</a></button>
+        </main>
     </div>
 
 </body>

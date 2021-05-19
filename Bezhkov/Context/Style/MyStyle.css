@@ -27,6 +27,10 @@ a:active {
     padding-left: 10px;
 }
 
+.padr {
+    padding-right: 10px;
+}
+
 .padlt {
     padding: 10px;
     padding-top: 0px;
@@ -46,7 +50,7 @@ a:active {
 }
 
 .minmenu {
-    min-width: 12%
+    min-width: 10%
 }
 
 p.fount {
@@ -67,4 +71,17 @@ figure.mystyle {
     background-color: #FFFFFF;
     position: relative;
     box-shadow: 6px 4px 5px 0px rgba(146, 29, 242, 0.60);
+}
+
+h4 {
+    color: transparent;
+    background: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
+}
+
+p {
+    text-indent: 35px;
 }
