@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="Style/MyStyle.css">
     <title>Video</title>
 </head>
+<style>
+    @font-face {
+        font-family: 'MyFount';
+        src: url('Fonts/Dancing_Script/Satisfy-Regular.ttf');
+    }
+</style>
 
 <body>
     <header id="header" style="background-color: black; margin-bottom: 10px;" class="d-flex justify-content-between text-white">
         <div style="display: flex;">
             <a href="Index.html">
                 <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
-            </a>Classmates
+            </a>
+            <h1>Classmates</h1>
         </div>
         <div style="display: flex;">
             <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">

@@ -8,197 +8,203 @@
     <title>Music</title>
 </head>
 
-<body>
+<style>
+    @font-face {
+        font-family: 'MyFount';
+        src: url('Fonts/Dancing_Script/Satisfy-Regular.ttf');
+    }
+</style>
 
-    <body>
-        <header id="header" style="background-color: black; margin-bottom: 10px;" class="d-flex justify-content-between text-white">
-            <div style="display: flex;">
-                <a href="Index.html">
-                    <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
-                </a>Classmates
+<body>
+    <header id="header" style="background-color: black; margin-bottom: 10px;" class="d-flex justify-content-between text-white">
+        <div style="display: flex;">
+            <a href="Index.html">
+                <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
+            </a>
+            <h1>Classmates</h1>
+        </div>
+        <div style="display: flex;">
+            <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">
+        </div>
+    </header>
+    <div id="menu" class="h-100 d-inline-block w-100 container-fluid d-flex flex-row">
+        <div class="col-1 w-auto">
+            <ul style="list-style-image:url(Icons/Моя\ страница.png);margin-right: 10px;">
+                <li><a href="Index.html">Моя страница</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Друзья.png);margin-right: 10px;">
+                <li><a href="Friends.html">Друзья</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Фото.png);margin-right: 10px;">
+                <li><a href="Photo.html">Фотографии</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Сообщения.png);margin-right: 10px;">
+                <li><a href="Message.html">Сообщения</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Музыка.png);margin-right: 10px;">
+                <li><a href="Music.html">Моя музыка</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Видео.png);margin-right: 10px;">
+                <li><a href="Video.html">Мои видео</a></li>
+            </ul>
+        </div>
+        <main role="main" style="padding-left: 10px;" class="col-11">
+            <div class="row">
+                <div class="col-2">
+                    <figure class="figure">
+                        <audio src="Music/2-coy-v-dj-vini_-_zvezda-po-imeni-solnce-remix.mp3" controls></audio>
+                        <figcaption class="figure-caption">zvezda-po-imeni-solnce-remix.mp3</figcaption>
+                    </figure>
+                </div>
+                <div class="col-10 paddelete">
+                    <form method="GET" action="#">
+                        <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
+                        </input>
+                    </form>
+                </div>
             </div>
-            <div style="display: flex;">
-                <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">
-            </div>
-        </header>
-        <div id="menu" class="h-100 d-inline-block w-100 container-fluid d-flex flex-row">
-            <div class="col-1 w-auto">
-                <ul style="list-style-image:url(Icons/Моя\ страница.png);margin-right: 10px;">
-                    <li><a href="Index.html">Моя страница</a></li>
-                </ul>
-                <ul style="list-style-image:url(Icons/Друзья.png);margin-right: 10px;">
-                    <li><a href="Friends.html">Друзья</a></li>
-                </ul>
-                <ul style="list-style-image:url(Icons/Фото.png);margin-right: 10px;">
-                    <li><a href="Photo.html">Фотографии</a></li>
-                </ul>
-                <ul style="list-style-image:url(Icons/Сообщения.png);margin-right: 10px;">
-                    <li><a href="Message.html">Сообщения</a></li>
-                </ul>
-                <ul style="list-style-image:url(Icons/Музыка.png);margin-right: 10px;">
-                    <li><a href="Music.html">Моя музыка</a></li>
-                </ul>
-                <ul style="list-style-image:url(Icons/Видео.png);margin-right: 10px;">
-                    <li><a href="Video.html">Мои видео</a></li>
-                </ul>
-            </div>
-            <main role="main" style="padding-left: 10px;" class="col-11">
-                <div class="row">
-                    <div class="col-2">
+            <div class="row">
+                <div class="col-2">
+                    <div class="d-flex flex-row">
                         <figure class="figure">
-                            <audio src="Music/2-coy-v-dj-vini_-_zvezda-po-imeni-solnce-remix.mp3" controls></audio>
-                            <figcaption class="figure-caption">zvezda-po-imeni-solnce-remix.mp3</figcaption>
+                            <audio src="Music/coy-v_-_hochu-peremen.mp3" controls></audio>
+                            <figcaption class="figure-caption">hochu-peremen</figcaption>
                         </figure>
                     </div>
-                    <div class="col-10 paddelete">
-                        <form method="GET" action="#">
-                            <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
-                            </input>
-                        </form>
+                </div>
+                <div class="col-10 paddelete">
+                    <form method="GET" action="#">
+                        <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
+                        </input>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <div class="d-flex flex-row">
+                        <figure class="figure">
+                            <audio src="Music/coy-v_-_pachka.mp3" controls></audio>
+                            <figcaption class="figure-caption">pachka.mp3</figcaption>
+                        </figure>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-2">
-                        <div class="d-flex flex-row">
-                            <figure class="figure">
-                                <audio src="Music/coy-v_-_hochu-peremen.mp3" controls></audio>
-                                <figcaption class="figure-caption">hochu-peremen</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-10 paddelete">
-                        <form method="GET" action="#">
-                            <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
-                            </input>
-                        </form>
+                <div class="col-10 paddelete">
+                    <form method="GET" action="#">
+                        <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
+                        </input>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <div class="d-flex flex-row">
+                        <figure class="figure">
+                            <audio src="Music/Deadmau5 & Rammstein - Du hast Professional Griefers (Riclight Mashup).mp3" controls></audio>
+                            <figcaption class="figure-caption">Du hast Professional Griefers
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
+                <div class="col-10 paddelete">
+                    <form method="GET" action="#">
+                        <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
+                        </input>
+                    </form>
+                </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-2">
-                        <div class="d-flex flex-row">
-                            <figure class="figure">
-                                <audio src="Music/coy-v_-_pachka.mp3" controls></audio>
-                                <figcaption class="figure-caption">pachka.mp3</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-10 paddelete">
-                        <form method="GET" action="#">
-                            <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
-                            </input>
-                        </form>
+
+            <div class="row">
+                <div class="col-2">
+                    <div class="d-flex flex-row">
+                        <figure class="figure">
+                            <audio src="Music/Rammstein - Mutter.mp3" controls></audio>
+                            <figcaption class="figure-caption">Mutter.mp3
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
+                <div class="col-10 paddelete">
+                    <form method="GET" action="#">
+                        <input type="image" id="delete" src="Images/Delete.jpg" />
+                        </input>
+                    </form>
+                </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-2">
-                        <div class="d-flex flex-row">
-                            <figure class="figure">
-                                <audio src="Music/Deadmau5 & Rammstein - Du hast Professional Griefers (Riclight Mashup).mp3" controls></audio>
-                                <figcaption class="figure-caption">Du hast Professional Griefers
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-10 paddelete">
-                        <form method="GET" action="#">
-                            <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
-                            </input>
-                        </form>
+
+            <div class="row">
+                <div class="col-2">
+                    <div class="d-flex flex-row">
+                        <figure class="figure">
+                            <audio src="Music/System Of A Down - Toxicity.mp3" controls></audio>
+                            <figcaption class="figure-caption">Toxicity.mp3
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
-
-
-                <div class="row">
-                    <div class="col-2">
-                        <div class="d-flex flex-row">
-                            <figure class="figure">
-                                <audio src="Music/Rammstein - Mutter.mp3" controls></audio>
-                                <figcaption class="figure-caption">Mutter.mp3
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-10 paddelete">
-                        <form method="GET" action="#">
-                            <input type="image" id="delete" src="Images/Delete.jpg" />
-                            </input>
-                        </form>
-                    </div>
+                <div class="col-10 paddelete">
+                    <form method="GET" action="#">
+                        <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
+                        </input>
+                    </form>
                 </div>
+            </div>
 
-
-                <div class="row">
-                    <div class="col-2">
-                        <div class="d-flex flex-row">
-                            <figure class="figure">
-                                <audio src="Music/System Of A Down - Toxicity.mp3" controls></audio>
-                                <figcaption class="figure-caption">Toxicity.mp3
-                                </figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-10 paddelete">
-                        <form method="GET" action="#">
-                            <input type="image" id="delete" src="Images/Delete.jpg" name="submit" />
-                            </input>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropmusic">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropmusic">
                                 Add Music
                             </button>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdropmusic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropmusicLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropmusicLabel">
-                                        Add Music
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="GET" action="#">
-                                        <input type="file" name=music; value="music" multiple accept="audio/mp3">
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdropmusic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropmusicLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropmusicLabel">
+                                    Add Music
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="GET" action="#">
+                                    <input type="file" name=music; value="music" multiple accept="audio/mp3">
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                                 </button>
-                                            <button type="submit" class="btn btn-primary">Сhange
+                                        <button type="submit" class="btn btn-primary">Сhange
                                                 </button>
-                                    </form>
-                                    </div>
+                                </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
+        </main>
 
-        </div>
-        <div id="footer">
-            <nav class="navbar navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="https://github.com/VadimBezhkov?tab=repositories">
-                        <h1><span class="footname">Homework</span> by Vadim Bezhkov <span class="fotcol"><</span><span>TeachMeSkills<span class="fotcol">/></span></h1>
-                        <img src="Icons/phone.png" alt="phone ">
-                        <p style="display: inline;">+375-44-462-97-47</p>
-                    </a>
+    </div>
+    <div id="footer">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://github.com/VadimBezhkov?tab=repositories">
+                    <h1><span class="footname">Homework</span> by Vadim Bezhkov <span class="fotcol"><</span><span>TeachMeSkills<span class="fotcol">/></span></h1>
+                    <img src="Icons/phone.png" alt="phone ">
+                    <p style="display: inline;">+375-44-462-97-47</p>
+                </a>
 
-                </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
 
-    </body>
+</body>
 
 </html>
