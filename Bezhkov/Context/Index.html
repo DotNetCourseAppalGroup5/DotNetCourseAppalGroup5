@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="Style/MyStyle.css">
     <title>My Clasmates</title>
-
+    <link rel="shortcut icon" href="Images/logo.jpg" type="image/x-icon">
 </head>
 <style>
     @font-face {
@@ -24,23 +24,35 @@
         <div style="display: flex;">
             <a href="Index.html">
                 <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
-            </a>Classmates
+            </a>
+            <h1>Classmates</h1>
         </div>
         <div style="display: flex;">
             <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">
         </div>
     </header>
 
-    <div id="menu" class="h-100 d-inline-block w-100 container-fluid d-flex flex-row">
-        <!-- <div class="row"> -->
-        <div class="col-1">
 
-            <ul style="list-style-image:url(Images/logotype.jpg);margin-right: 10px;">
+    <div class="h-100 d-inline-block w-100 container-fluid d-flex flex-row">
+
+        <div id="menu" class="col-1 w-auto">
+
+            <ul style="list-style-image:url(Icons/Моя\ страница.png);margin-right: 10px;">
                 <li><a href="Index.html">Моя страница</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Друзья.png);margin-right: 10px;">
                 <li><a href="Friends.html">Друзья</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Фото.png);margin-right: 10px;">
                 <li><a href="Photo.html">Фотографии</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Сообщения.png);margin-right: 10px;">
                 <li><a href="Message.html">Сообщения</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Музыка.png);margin-right: 10px;">
                 <li><a href="Music.html">Моя музыка</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Видео.png);margin-right: 10px;">
                 <li><a href="Video.html">Мои видео</a></li>
             </ul>
         </div>
@@ -48,43 +60,37 @@
         <main role="main" class="col-8">
             <div class="row">
                 <div class="col-3">
-
-                    <div>
-                        <img src=https://picsum.photos/200/300 alt="avatar" class="padb" />
-
-                        <div class="padb">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary butunsize" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <img src=https://picsum.photos/200/300 alt="avatar" class="padb img-fluid" />
+                    <div class="padb d-md-flex change" data-desc="Change avatars">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-secondary butunsize" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 Change avatar
                                 </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Avatar</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="#">
+                                            <input type="file" id="file" name=avater; value="avatar" accept="image/jpeg,image/png,image/gif">
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Avatar</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form method="POST" action="#">
-                                                <input type="file" name=avater; value="avatar" accept="image/jpeg,image/png,image/gif">
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Сhange</button>
-                                            </form>
-                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Сhange</button>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div>
+                    <div data-descr="Edit   My Profile" class="change1">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary butunsize" data-bs-toggle="modal" data-bs-target="#staticBackdropedit">
+                        <button type="button" class="btn btn-outline-secondary butunsize" data-bs-toggle="modal" data-bs-target="#staticBackdropedit">
                                     Edit
                                 </button>
 
@@ -190,7 +196,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="content" class="col-9">
+                <div id="content" class="col-9 fl">
 
                     <h4 style="line-height: 200%; text-align: center;"> MyHomework </h4>
                     <p class="fount"><b>Lorem psum dolor</b> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Elit at imperdiet dui accumsan.
@@ -198,12 +204,12 @@
                         Id consectetur purus ut faucibus pulvinar elementum. Turpis nunc eget lorem dolor sed viverra ipsum. Eget nunc lobortis mattis aliquam faucibus purus in.
                     </p>
 
-                    <p><b>Turpis tincidunt</b> id aliquet risus feugiat in ante. Arcu odio ut sem nulla pharetra diam sit amet. Diam vulputate ut pharetra sit amet. Tempus quam pellentesque nec nam aliquam sem et tortor consequat. Eget gravida cum sociis
+                    <p name="par3"><b>Turpis tincidunt</b> id aliquet risus feugiat in ante. Arcu odio ut sem nulla pharetra diam sit amet. Diam vulputate ut pharetra sit amet. Tempus quam pellentesque nec nam aliquam sem et tortor consequat. Eget gravida cum sociis
                         natoque. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. A diam maecenas sed enim ut sem viverra aliquet eget. Nisl tincidunt eget nullam non nisi est sit amet. Rhoncus mattis rhoncus urna neque viverra justo
                         nec ultrices. In eu mi bibendum neque egestas. Id porta nibh venenatis cras sed felis eget velit aliquet. At tempor commodo ullamcorper a lacus vestibulum. Fringilla phasellus faucibus scelerisque eleifend. Sagittis eu volutpat
                         odio facilisis mauris.</p>
 
-                    <p><b>Turpis egestas integer</b> eget aliquet nibh praesent. Sed felis eget velit aliquet sagittis id consectetur purus ut. Sit amet purus gravida quis. Faucibus in ornare quam viverra orci sagittis eu volutpat. Consequat id porta nibh
+                    <p class="fount"><b>Turpis egestas integer</b> eget aliquet nibh praesent. Sed felis eget velit aliquet sagittis id consectetur purus ut. Sit amet purus gravida quis. Faucibus in ornare quam viverra orci sagittis eu volutpat. Consequat id porta nibh
                         venenatis cras sed. Quis commodo odio aenean sed adipiscing diam donec. Sed viverra tellus in hac habitasse platea. Quam viverra orci sagittis eu volutpat odio facilisis mauris. Sed risus ultricies tristique nulla aliquet. Tempor
                         orci dapibus ultrices in iaculis. Facilisis magna etiam tempor orci eu. Enim sit amet venenatis urna cursus eget nunc. Elit sed vulputate mi sit. Dui ut ornare lectus sit amet est placerat in egestas. Faucibus pulvinar elementum
                         integer enim neque volutpat. Elementum curabitur vitae nunc sed velit dignissim sodales ut. Laoreet sit amet cursus sit amet dictum sit amet justo. Nulla pharetra diam sit amet nisl suscipit adipiscing. Suscipit tellus mauris a
@@ -267,10 +273,10 @@
                 </div>
             </div>
         </div>
-        <div id="sidebar" class="col-2">
-            <iframe src="http://wikipedia.com" height="1800" width="90%"></iframe>
+        <div id="sidebar" class="col-2 w-auto ">
+            <iframe src="http://wikipedia.com" height="1800"></iframe>
 
-            <div>
+            <div class="padl">
                 <nav aria-label="page navigation example">
                     <ul class="pagination">
                         <li class="page-item"><a class="page-link" href="index.html">previous</a></li>
@@ -282,8 +288,23 @@
                 </nav>
             </div>
         </div>
-        <!-- </div> -->
     </div>
+    <div id="footer">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://github.com/VadimBezhkov?tab=repositories">
+                    <h1><span class="footname">Homework</span> by Vadim Bezhkov <span class="fotcol"><</span><span>TeachMeSkills<span class="fotcol">/></span></h1>
+                    <img src="Icons/phone.png" alt="phone ">
+                    <p style="display: inline;">+375-44-462-97-47</p>
+                </a>
+
+            </div>
+        </nav>
+    </div>
+
+    <!-- <div id="footer" style="background-color: aqua; height: 50px; display: flex;">
+
+    </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
