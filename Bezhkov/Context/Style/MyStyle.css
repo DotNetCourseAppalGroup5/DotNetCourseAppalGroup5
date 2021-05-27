@@ -205,3 +205,17 @@ h1 {
 .home {
     animation: homework 2s ease-in-out infinite;
 }
+
+.html {
+    height: 100%;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
