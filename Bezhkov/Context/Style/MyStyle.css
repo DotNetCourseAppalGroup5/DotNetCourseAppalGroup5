@@ -1,0 +1,221 @@
+.pad {
+    padding: 10px;
+}
+
+a:link {
+    color: rgb(8, 8, 8);
+    text-decoration: none
+}
+
+a:visited {
+    color: rgb(8, 8, 8);
+    text-decoration: none
+}
+
+a:hover {
+    color: rgb(57, 240, 33);
+    text-decoration: none
+}
+
+a:active {
+    color: rgb(8, 8, 8);
+    ;
+    text-decoration: none
+}
+
+.padl {
+    padding-left: 10px;
+}
+
+.padr {
+    padding-right: 10px;
+}
+
+.padlt {
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.padb {
+    padding-bottom: 10px;
+}
+
+.selpad {
+    padding: 0;
+    margin-top: -7px;
+}
+
+.mar {
+    margin-left: 10px;
+}
+
+.minmenu {
+    min-width: 10%
+}
+
+.fount {
+    font-family: MyFount, Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+
+.butunsize {
+    width: 68%;
+}
+
+.paddelete {
+    padding-left: 40px;
+    padding-top: 15px;
+}
+
+figure.mystyle {
+    background-color: #FFFFFF;
+    position: relative;
+    box-shadow: 6px 4px 5px 0px rgba(146, 29, 242, 0.60);
+}
+
+h4 {
+    color: transparent;
+    background: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
+    font-size: 50px;
+}
+
+p {
+    text-indent: 35px;
+}
+
+.size {
+    width: 200px;
+}
+
+li {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.fl p::first-letter {
+    font-size: 30px;
+    color: red;
+}
+
+.change:hover::after {
+    font-family: MyFount, Arial, Helvetica, sans-serif;
+    content: attr(data-desc);
+    position: absolute;
+    left: 13%;
+    top: 1%;
+    color: red;
+}
+
+.change1:hover::after {
+    font-family: MyFount, Arial, Helvetica, sans-serif;
+    content: attr(data-descr);
+    position: absolute;
+    left: 13%;
+    top: 1%;
+    color: red;
+}
+
+h1 {
+    font-family: MyFount, Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    animation: render 2s ease-in-out infinite;
+}
+
+.fotcol {
+    color: rgba(235, 235, 46, 0.897)
+}
+
+.footname {
+    color: red;
+}
+
+@keyframes render {
+    0% {
+        color: #666666;
+    }
+    50% {
+        color: red;
+    }
+    100% {
+        color: #FFFFFF;
+    }
+}
+
+.had {
+    animation: render 2s ease-in-out infinite;
+}
+
+@keyframes reklama {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+
+.rek {
+    animation: reklama 5s ease-in-out infinite;
+}
+
+@keyframes homework {
+    0% {
+        margin-left: 0px;
+    }
+    10% {
+        margin-left: 10px;
+    }
+    20% {
+        margin-left: 20px;
+    }
+    30% {
+        margin-left: 30px;
+    }
+    40% {
+        margin-left: 40px;
+    }
+    50% {
+        margin-left: 50px;
+    }
+    60% {
+        margin-left: 40px;
+    }
+    70% {
+        margin-left: 30px;
+    }
+    80% {
+        margin-left: 20px;
+    }
+    90% {
+        margin-left: 10px;
+    }
+    100% {
+        margin-left: 0px;
+    }
+}
+
+.home {
+    animation: homework 2s ease-in-out infinite;
+}
+
+.html {
+    height: 100%;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.footer {
+    flex: 0 0 auto;
+}

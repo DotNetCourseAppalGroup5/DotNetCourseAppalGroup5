@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Photo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style/MyStyle.css">
+</head>
+<style>
+    @font-face {
+        font-family: 'MyFount';
+        src: url('Fonts/Dancing_Script/Satisfy-Regular.ttf');
+    }
+</style>
+
+<body>
+    <header id="header" style="background-color: black; margin-bottom: 10px;" class="d-flex justify-content-between text-white">
+        <div style="display: flex;">
+            <a href="Index.html">
+                <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
+            </a>
+            <h1>Classmates</h1>
+        </div>
+        <div style="display: flex;">
+            <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">
+        </div>
+    </header>
+
+    <div id="menu" class="h-100 d-inline-block w-100 container-fluid d-flex flex-row">
+        <div class="col-1 w-auto">
+            <ul style="list-style-image:url(Icons/Моя\ страница.png);margin-right: 10px;">
+                <li><a href="Index.html">Моя страница</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Друзья.png);margin-right: 10px;">
+                <li><a href="Friends.html">Друзья</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Фото.png);margin-right: 10px;">
+                <li><a href="Photo.html">Фотографии</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Сообщения.png);margin-right: 10px;">
+                <li><a href="Message.html">Сообщения</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Музыка.png);margin-right: 10px;">
+                <li><a href="Music.html">Моя музыка</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Видео.png);margin-right: 10px;">
+                <li><a href="Video.html">Мои видео</a></li>
+            </ul>
+        </div>
+
+        <main role="main" class="col-11">
+            <div class="row">
+                <div class="col-6">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="Photo/1770115.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Photo/index.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Photo/aspnet-mvc-1.webp" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Предыдущий</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Следующий</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <figure class="figure mystyle">
+                        <img src="Photo/9c81cc1e95d9b54be97d41c92ac99e14.jpg" class="img-fluid" alt="Photo №2">
+                        <figcaption class="figure-caption">Photo №2
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <figure class="figure mystyle">
+                        <img src="Photo/aspnet-mvc-1.webp" class="img-fluid" alt="Photo №3">
+                        <figcaption class="figure-caption">Photo №3
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="col-6">
+                    <figure class="figure mystyle">
+                        <img src="Photo/index.jpg" class="img-fluid" alt="Photo №4">
+                        <figcaption class="figure-caption">Photo №4
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropphoto">
+                         Add Image
+                        </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdropphoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropphotoLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropphotoLabel">Add Image</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="GET" action="#">
+                                    <input type="file" name=photo; value="photo" accept="image/jpeg,image/png,image/gif" multiple>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Сhange</button>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+        </div>
+        <div id="footer">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="https://github.com/VadimBezhkov?tab=repositories">
+                        <h1><span class="footname">Homework</span> by Vadim Bezhkov <span class="fotcol"><</span><span>TeachMeSkills<span class="fotcol">/></span></h1>
+                        <img src="Icons/phone.png" alt="phone ">
+                        <p style="display: inline;">+375-44-462-97-47</p>
+                    </a>
+
+                </div>
+            </nav>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+        </script>
+</body>
+
+
+</html>

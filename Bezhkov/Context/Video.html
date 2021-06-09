@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="html">
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <base href="D:\Homework\Context\">
+    <link rel="stylesheet" href="Style/MyStyle.css">
+    <title>Video</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'MyFount';
+        src: url('Fonts/Dancing_Script/Satisfy-Regular.ttf');
+    }
+</style>
+
+<body class="body">
+    <header id="header" style="background-color: black; margin-bottom: 10px;" class="d-flex justify-content-between text-white">
+        <div style="display: flex;">
+            <a href="Index.html">
+                <img src="images\logo.jpg" alt="Logo" style="width: 50%" />
+            </a>
+            <h1>Classmates</h1>
+        </div>
+        <div style="display: flex;">
+            <input type="search" onmousedown="event.cancelBubble = true;" ontouchstart="event.cancelBubble = true;" class="TopSearch__input" id="ts_input" autocomplete="off" name="disable-autofill" placeholder="Поиск" aria-label="Поиск">
+        </div>
+    </header>
+
+    <div class="h-100 d-inline-block w-100 container-fluid d-flex flex-row">
+        <div id="menu" class="col-1 w-auto">
+            <ul style="list-style-image:url(Icons/Моя\ страница.png);margin-right: 10px;">
+                <li><a href="Index.html">Моя страница</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Друзья.png);margin-right: 10px;">
+                <li><a href="Friends.html">Друзья</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Фото.png);margin-right: 10px;">
+                <li><a href="Photo.html">Фотографии</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Сообщения.png);margin-right: 10px;">
+                <li><a href="Message.html">Сообщения</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Музыка.png);margin-right: 10px;">
+                <li><a href="Music.html">Моя музыка</a></li>
+            </ul>
+            <ul style="list-style-image:url(Icons/Видео.png);margin-right: 10px;">
+                <li><a href="Video.html">Мои видео</a></li>
+            </ul>
+        </div>
+        <main role="main" class="col-11">
+
+            <figure class="figure">
+                <video src="Videos/Aerial - 18390.mp4" width="500" height="300" controls></video>
+                <figcaption class="figure-video">video №1
+                </figcaption>
+            </figure>
+
+            <figure class="figure">
+                <video src="Videos/Landscape - 757.mp4" width="500" height="300" controls></video>
+                <figcaption class="figure-video">video №2
+                </figcaption>
+            </figure>
+
+            <figure class="figure">
+                <video src="Videos/Mountains - 7418.mp4" width="500" height="300" controls></video>
+                <figcaption class="figure-video">video №3
+                </figcaption>
+            </figure>
+
+            <figure class="figure">
+                <video src="Videos/Star - 6962.mp4 " width="500" height="300" controls></video>
+                <figcaption class="figure-video">video №4
+                </figcaption>
+            </figure>
+
+            <div class="row col-md-1 padl">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropvideo">
+                            Add Video
+                        </button>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropvideo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropvideoLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropvideoLabel">Add Video</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="#">
+                                <input type="file" name=video; value="video" accept="video/avi,video/mp4" multiple>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Сhange</button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="footer">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://github.com/VadimBezhkov?tab=repositories">
+                    <h1><span class="footname">Homework</span> by Vadim Bezhkov <span class="fotcol"><</span><span>TeachMeSkills<span class="fotcol">/></span></h1>
+                    <img src="Icons/phone.png" alt="phone ">
+                    <p style="display: inline;">+375-44-462-97-47</p>
+                </a>
+
+            </div>
+        </nav>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
