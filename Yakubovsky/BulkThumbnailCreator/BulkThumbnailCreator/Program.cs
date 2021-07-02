@@ -7,54 +7,77 @@ using BulkThumbnailCreator.Properties;
 
 namespace BulkThumbnailCreator
 {
-    internal class Program
+    public class Program
     {
-        public delegate void ShowMenu();
-        
         public static void Main(string[] args)
         {
             CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
             CancellationToken token = cancelTokenSource.Token;
             
             Finder finder = new Finder();
-            ShowMenu showMenu = new ShowMenu(Menu);
+            MenuAction action;
+            
             bool processRun = true;
             
             while (processRun)
             {
-                showMenu?.Invoke();
-                MenuAction action;
+                Menu();
+                
                 Enum.TryParse(Console.ReadLine().ToLower(), out action);
                 Console.Clear();
 
                 switch (action)
                 {
                     case MenuAction.resize:
-                        Task.Factory.StartNew(() => finder.ResizeImages()).Wait();
+                    {
+                        Task.Factory.StartNew(() => finder.ResizeImages(token));
+                        CancellationMenu(cancelTokenSource);
                         break;
+                    }
                     case MenuAction.rename:
-                        Task.Factory.StartNew(() => finder.RenameImages()).Wait();
+                    {
+                        Console.Write(Constansts.PictureProcess.PictureName);
+                        string newNameForFiles = Console.ReadLine();
+
+                        Task.Factory.StartNew(() => finder.RenameImages(newNameForFiles, token));
+                        CancellationMenu(cancelTokenSource);
                         break;
+                    }
                     case MenuAction.exit:
+                    {
                         processRun = false;
-                        Thread.Sleep(3000);
                         Console.WriteLine(Constansts.UserNotifications.NotifyExit);
                         break;
+                    }
                     default:
-                        Console.Clear();
+                    {
+                        Console.WriteLine(Constansts.ErrorMessages.InputError);
                         break;
+                    }
                 }
+                Console.Clear();
             }
         }
 
         static void Menu()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("1) Resize images.");
-            Console.WriteLine("2) Rename images.");
-            Console.WriteLine("3) Exit.");
-            Console.Write("Enter name of operation or point of operation: ");
+            Console.WriteLine(Constansts.MainMenu.PointResize);
+            Console.WriteLine(Constansts.MainMenu.PointRename);
+            Console.WriteLine(Constansts.MainMenu.PointExit);
+            Console.Write(Constansts.MainMenu.PointOperationChoice);
             Console.ResetColor();
+        }
+
+        static void CancellationMenu(CancellationTokenSource cancellationTokenSource)
+        {
+            Console.WriteLine(Constansts.CancellationRequest.request);
+            string request = Console.ReadLine().ToLower();
+
+            if (request == "s")
+            {
+                cancellationTokenSource.Cancel();
+            }
         }
     }
 }
